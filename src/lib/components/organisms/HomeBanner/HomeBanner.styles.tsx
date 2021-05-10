@@ -45,8 +45,39 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     font: ${theme.font.sizes.xxlarge} ${theme.font.family.lato};
     color: ${theme.colors.white};
-    margin: ${({ theme }) => theme.spacing.xxsmall};
+    margin-top: ${({ theme }) => theme.spacing.xxsmall};
   `}
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: ${({ theme }) => theme.spacing.medium};
+`;
+
+export const AnchorButton = styled.a`
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
+  font-family: ${({ theme }) => theme.font.family.ptsans};
+`;
+
+export const Button = styled.button`
+  color: ${({ theme }) => theme.colors.secondary};
+  border: 0.2rem solid ${({ theme }) => theme.colors.secondary};
+
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
+  font-family: ${({ theme }) => theme.font.family.ptsans};
 `;
 
 export const IllustrationWrapper = styled.div`

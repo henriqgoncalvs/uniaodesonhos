@@ -82,6 +82,11 @@ const GlobalStyle: GlobalStyleComponent<
     img {
       pointer-events: none;
     }
+
+    a,
+    button {
+      cursor: pointer;
+    }
   `}
 `;
 

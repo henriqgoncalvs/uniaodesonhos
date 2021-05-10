@@ -12,7 +12,11 @@ const HomeBanner = () => {
             src={uniaoDeSonhosLogo}
             alt="Logo escrito União de Sonhos com uma nuvem ao lado esquerdo"
           />
-          <S.Title>Colocando sonhos no mundo</S.Title>
+          <S.Title>Colocando sonhos no mundo.</S.Title>
+          <S.ButtonWrapper>
+            <S.AnchorButton>Sonhar</S.AnchorButton>
+            <S.Button>Quero apoiar um sonho</S.Button>
+          </S.ButtonWrapper>
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration
