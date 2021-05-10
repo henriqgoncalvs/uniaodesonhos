@@ -1,31 +1,74 @@
+import Carousel from 'react-multi-carousel';
+
+import dreams from './mocked-data/sonhos';
 import * as S from './HomeSonhosSendoSonhados.styles';
+
+import 'react-multi-carousel/lib/styles.css';
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: dreams.length < 4 ? dreams.length : 4,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
 
 const HomeSonhosSendoSonhados = () => {
   return (
     <S.Container>
       <S.Title>Sonhos sendo sonhados</S.Title>
 
-      <S.SonhoCard>
-        <S.SonhoCardBanner bg="/img/map.svg">
-          <p>A viagem de Luis</p>
-          <S.SonhoCardButton>Sonhar</S.SonhoCardButton>
-        </S.SonhoCardBanner>
+      <Carousel
+        centerMode
+        arrows
+        draggable
+        ssr
+        responsive={responsive}
+        infinite
+        autoPlay
+        autoPlaySpeed={3000}
+        slidesToSlide={1}
+        swipeable
+      >
+        {dreams.map((dream) => (
+          <S.SonhoCard key={dream.id}>
+            <S.SonhoCardBanner bg={dream.photo}>
+              <p>{dream.title}</p>
+              <S.SonhoCardButton href={dream.url}>Sonhar</S.SonhoCardButton>
+            </S.SonhoCardBanner>
 
-        <S.SonhoCardContent>
-          <S.TagWrapper>
-            <S.Tag color="lighterSecondary">Financiamento</S.Tag>
-            <S.Tag color="lighterSecondary">Tempo</S.Tag>
-          </S.TagWrapper>
-          <S.SonhoCardDescription>
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum Lorem ipsum.
-          </S.SonhoCardDescription>
-          <S.TagWrapper>
-            <S.Tag color="lighterPrimary">Financiamento</S.Tag>
-            <S.Tag color="lighterPrimary">Tempo</S.Tag>
-          </S.TagWrapper>
-        </S.SonhoCardContent>
-      </S.SonhoCard>
+            <S.SonhoCardContent>
+              <S.TagWrapper>
+                {dream.tags.map((tag) => (
+                  <S.Tag key={tag} color="lighterSecondary">
+                    {tag}
+                  </S.Tag>
+                ))}
+              </S.TagWrapper>
+              <S.SonhoCardDescription>
+                {dream.description}
+              </S.SonhoCardDescription>
+              <S.TagWrapper>
+                {dream.partners.map((partner) => (
+                  <S.Tag key={partner} color="lighterPrimary">
+                    {partner}
+                  </S.Tag>
+                ))}
+              </S.TagWrapper>
+            </S.SonhoCardContent>
+          </S.SonhoCard>
+        ))}
+      </Carousel>
     </S.Container>
   );
 };

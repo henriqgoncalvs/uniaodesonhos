@@ -2,23 +2,27 @@ import styled, { DefaultTheme } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
 
   margin: 0 auto;
 
   margin-top: ${({ theme }) => theme.spacing.xlarge};
   margin-bottom: ${({ theme }) => theme.spacing.small};
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: ${({ theme }) => theme.spacing.xxlarge};
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: ${({ theme }) => theme.spacing.xxlarge}; */
 `;
 
 export const Title = styled.h2`
   font-family: ${({ theme }) => theme.font.family.pilat};
   font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
   color: ${({ theme }) => theme.colors.primary};
+
+  max-width: ${({ theme }) => theme.breakpoints.desktop};
+
+  margin-left: auto;
+  margin-right: auto;
 
   width: 100%;
   text-align: center;
@@ -29,7 +33,7 @@ export const SonhoCard = styled.div`
   flex-direction: column;
 
   flex: 0.25;
-  max-width: 300px;
+  max-width: 30rem;
 `;
 
 export const SonhoCardBanner = styled.div`
@@ -42,12 +46,15 @@ export const SonhoCardBanner = styled.div`
 
   padding: 2rem 3rem;
 
+  min-height: 14rem;
+
   p {
+    text-align: center;
     font-size: ${({ theme }) => theme.font.sizes.medium};
   }
 `;
 
-export const SonhoCardButton = styled.button`
+export const SonhoCardButton = styled.a`
   background-color: ${({ theme }) => theme.colors.primary};
   background-position: center;
   background-size: cover;
@@ -57,6 +64,10 @@ export const SonhoCardButton = styled.button`
 
   font-size: ${({ theme }) => theme.font.sizes.xxsmall};
   font-family: ${({ theme }) => theme.font.family.ptsans};
+
+  color: ${({ theme }) => theme.colors.black};
+
+  text-decoration: none;
 `;
 
 export const SonhoCardContent = styled.div`
