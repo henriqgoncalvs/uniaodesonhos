@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   margin: 0 auto;
 
-  margin-top: ${({ theme }) => theme.spacing.xlarge};
+  margin-top: ${({ theme }) => theme.spacing.xxxlarge};
   margin-bottom: ${({ theme }) => theme.spacing.small};
 
   /* display: flex; */
@@ -16,7 +16,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-family: ${({ theme }) => theme.font.family.pilat};
-  font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
+  font-size: ${({ theme }) => theme.font.sizes.xxlarge};
   color: ${({ theme }) => theme.colors.primary};
 
   max-width: ${({ theme }) => theme.breakpoints.desktop};
