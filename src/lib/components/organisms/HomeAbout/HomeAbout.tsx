@@ -38,7 +38,7 @@ const HomeAbout = () => {
 
       {companies.map((company, index) => (
         <S.CompanyWrapper
-          direction={index % 2 ? 'reverse' : undefined}
+          direction={index % 2 ? 'row-reverse' : undefined}
           key={company.title}
         >
           <S.Content>

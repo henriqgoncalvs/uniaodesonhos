@@ -83,7 +83,8 @@ export const Word = styled.p`
 
 export const CompanyWrapper = styled.div`
   display: flex;
-  flex-direction: ${({ direction }: { direction?: 'reverse' }) => direction};
+  flex-direction: ${({ direction }: { direction?: 'row-reverse' }) =>
+    direction};
   align-items: center;
   justify-content: space-between;
 

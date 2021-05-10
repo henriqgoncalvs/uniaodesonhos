@@ -13,6 +13,7 @@ export default {
   heavy: 800,
   black: 900,
   sizes: {
+    xxxsmall: '1rem',
     xxsmall: '1.4rem',
     xsmall: '1.6rem',
     small: '1.8rem',
