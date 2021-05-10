@@ -20,5 +20,6 @@ export default {
     large: '2.6rem',
     xlarge: '3.4rem',
     xxlarge: '5.2rem',
+    xxxlarge: '7rem',
   },
 };

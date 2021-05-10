@@ -69,7 +69,7 @@ const GlobalStyle: GlobalStyleComponent<
 
   ${({ theme }) => css`
     html {
-      font-family: ${theme.font.family};
+      font-family: ${theme.font.family.lato};
       font-size: 62.5%;
       scroll-behavior: smooth;
     }
@@ -77,6 +77,10 @@ const GlobalStyle: GlobalStyleComponent<
       background-color: ${theme.colors.bodyBackground};
       color: ${theme.colors.black};
       font-size: ${theme.font.sizes.small};
+    }
+
+    img {
+      pointer-events: none;
     }
   `}
 `;
