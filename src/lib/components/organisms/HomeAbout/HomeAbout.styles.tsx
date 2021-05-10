@@ -12,7 +12,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ${({ theme }) => theme.spacing.xxlarge};
+  justify-content: center;
 `;
 
 export const UniaoWrapper = styled.div`
