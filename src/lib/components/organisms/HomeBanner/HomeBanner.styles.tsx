@@ -4,15 +4,15 @@ import homeBannerBg from 'assets/img/home-banner-bg.svg';
 
 export const Container = styled.div`
   min-height: 100vh;
-  background: url(${homeBannerBg}) center no-repeat;
+  background: url(${homeBannerBg}) no-repeat;
+  background-position: center bottom;
   background-size: cover;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-bottom: ${({ theme }) => theme.spacing.xlarge};
-  padding-bottom: ${({ theme }) => theme.spacing.xlarge};
+  padding-bottom: 20vh;
 `;
 
 export const Wrapper = styled.div`
@@ -43,7 +43,9 @@ export const Title = styled.h1`
   width: 60%;
 
   ${({ theme }) => css`
-    font: ${theme.font.sizes.xxlarge} ${theme.font.family.lato};
+    font-size: ${theme.font.sizes.xxlarge};
+    font-family: ${theme.font.family.lato};
+    font-weight: 400;
     color: ${theme.colors.white};
     margin-top: ${({ theme }) => theme.spacing.xxsmall};
   `}
