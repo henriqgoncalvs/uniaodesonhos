@@ -37,10 +37,10 @@ export const Button = styled.a`
   background-color: ${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.colors.black};
 
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 4rem;
   border-radius: 0.5rem;
 
-  font-size: ${({ theme }) => theme.font.sizes.xsmall};
+  font-size: ${({ theme }) => theme.font.sizes.xxsmall};
   font-family: ${({ theme }) => theme.font.family.ptsans};
 
   text-transform: uppercase;
