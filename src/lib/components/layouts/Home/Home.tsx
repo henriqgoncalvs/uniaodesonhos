@@ -1,3 +1,4 @@
+import Footer from 'lib/components/organisms/Footer';
 import HomeAbout from 'lib/components/organisms/HomeAbout';
 import HomeBanner from 'lib/components/organisms/HomeBanner';
 import HomeCompanies from 'lib/components/organisms/HomeCompanies';
@@ -12,6 +13,7 @@ const Home = () => {
       <HomeSonhosSendoSonhados />
       <HomeMap />
       <HomeCompanies />
+      <Footer />
     </>
   );
 };
