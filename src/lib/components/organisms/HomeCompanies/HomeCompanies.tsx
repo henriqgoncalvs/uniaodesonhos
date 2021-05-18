@@ -1,3 +1,5 @@
+import { AnchorButton } from 'lib/components/common/Button';
+
 import * as S from './HomeCompanies.styles';
 
 const HomeCompanies = () => {
@@ -7,7 +9,7 @@ const HomeCompanies = () => {
         <S.Content>
           <S.Title>Sonhando sonhos juntos</S.Title>
 
-          <S.Button>Ver detalhes</S.Button>
+          <AnchorButton colorStyle="filled">VER DETALHES</AnchorButton>
 
           <S.CompaniesContainer>
             <img src="/img/companies/bis.svg" />

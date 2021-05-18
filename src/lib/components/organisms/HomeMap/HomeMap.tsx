@@ -1,3 +1,5 @@
+import { AnchorButton } from 'lib/components/common/Button';
+
 import mapData from './mocked-data/map-data';
 import * as S from './HomeMap.styles';
 
@@ -7,7 +9,7 @@ const HomeMap = () => {
       <S.MapSection>
         <S.Title>O impacto de sonhar junto</S.Title>
 
-        <S.Button>Sonhar</S.Button>
+        <AnchorButton colorStyle="filled">SONHAR</AnchorButton>
 
         <S.MapImage
           src="/img/map.svg"

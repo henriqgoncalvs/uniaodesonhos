@@ -1,3 +1,5 @@
+import { AnchorButton, Button } from 'lib/components/common/Button';
+
 import * as S from './HomeBanner.styles';
 
 const HomeBanner = () => {
@@ -11,8 +13,10 @@ const HomeBanner = () => {
           />
           <S.Title>Colocando sonhos no mundo.</S.Title>
           <S.ButtonWrapper>
-            <S.AnchorButton>Sonhar</S.AnchorButton>
-            <S.Button>Quero apoiar um sonho</S.Button>
+            <Button colorStyle="filled">Sonhar</Button>
+            <AnchorButton colorStyle="line" href="/fdaf">
+              Quero apoiar um sonho
+            </AnchorButton>
           </S.ButtonWrapper>
         </S.Content>
         <S.IllustrationWrapper>
