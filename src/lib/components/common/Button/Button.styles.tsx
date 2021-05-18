@@ -1,7 +1,13 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 interface StyledButtonProps {
-  colorStyle: 'yellowFilled' | 'yellowLine' | 'blueFilled' | 'blueLine';
+  colorStyle?: 'yellowFilled' | 'yellowLine' | 'blueFilled' | 'blueLine';
+  border?: 'squared' | 'rounded';
+  size?: 'small' | 'medium';
+}
+
+interface StyledButtonPropsWithTheme extends StyledButtonProps {
+  theme: DefaultTheme;
 }
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -11,32 +17,57 @@ export interface AnchorProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     StyledButtonProps {}
 
-const typeModifiers = {
-  yellowFilled: (theme: DefaultTheme) => css`
+const colorModifiers = {
+  yellowFilled: (theme: DefaultTheme) => `
     background-color: ${theme.colors.secondary};
     border: none;
     color: ${theme.colors.black};
   `,
-  yellowLine: (theme: DefaultTheme) => css`
+  yellowLine: (theme: DefaultTheme) => `
     border: 2px solid ${theme.colors.secondary};
     color: ${theme.colors.black};
   `,
-  blueFilled: (theme: DefaultTheme) => css`
+  blueFilled: (theme: DefaultTheme) => `
     background-color: ${theme.colors.primary};
     border: none;
     color: ${theme.colors.black};
   `,
-  blueLine: (theme: DefaultTheme) => css`
+  blueLine: (theme: DefaultTheme) => `
     border: 2px solid ${theme.colors.primary};
     color: ${theme.colors.black};
   `,
 };
 
-const commonStyles = ({ theme }: { theme: DefaultTheme }) => `
-  padding: 1.5rem 3rem;
-  border-radius: 1rem;
+const sizeModifiers = {
+  small: (theme: DefaultTheme) => `
+    font-size: ${theme.font.sizes.xxsmall};
+    padding: ${theme.utils.button.padding.small};
+  `,
+  medium: (theme: DefaultTheme) => `
+    font-size: ${theme.font.sizes.xsmall};
+    padding: ${theme.utils.button.padding.medium};
+  `,
+};
 
-  font-size: ${theme.font.sizes.xsmall};
+const borderModifiers = {
+  squared: () => `
+    border-radius: 0rem;
+  `,
+  rounded: (theme: DefaultTheme) => `
+    border-radius: ${theme.utils.button.border.radius};
+  `,
+};
+
+const commonStyles = ({
+  theme,
+  colorStyle,
+  border,
+  size,
+}: StyledButtonPropsWithTheme) => `
+  ${colorStyle && colorModifiers[colorStyle](theme)}
+  ${size && sizeModifiers[size](theme)}
+  ${border && borderModifiers[border](theme)}
+
   font-family: ${theme.font.family.ptsans};
 
   text-decoration: none;
@@ -49,17 +80,11 @@ const commonStyles = ({ theme }: { theme: DefaultTheme }) => `
 `;
 
 export const Button = styled.button<ButtonProps>`
-  ${({ theme, colorStyle }) => css`
-    ${colorStyle && typeModifiers[colorStyle](theme)};
-  `}
-
-  ${({ theme }) => commonStyles({ theme })}
+  ${({ theme, colorStyle, border, size }) =>
+    commonStyles({ theme, colorStyle, border, size })}
 `;
 
 export const AnchorButton = styled.a<AnchorProps>`
-  ${({ theme, colorStyle }) => css`
-    ${colorStyle && typeModifiers[colorStyle](theme)};
-  `}
-
-  ${({ theme }) => commonStyles({ theme })}
+  ${({ theme, colorStyle, border, size }) =>
+    commonStyles({ theme, colorStyle, border, size })}
 `;

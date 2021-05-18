@@ -46,7 +46,12 @@ const HomeSonhosSendoSonhados = () => {
           <S.SonhoCard key={dream.id}>
             <S.SonhoCardBanner bg={dream.photo}>
               <p>{dream.title}</p>
-              <AnchorButton colorStyle="blueFilled" href={dream.url}>
+              <AnchorButton
+                colorStyle="blueFilled"
+                border="squared"
+                size="small"
+                href={dream.url}
+              >
                 Sonhar
               </AnchorButton>
             </S.SonhoCardBanner>

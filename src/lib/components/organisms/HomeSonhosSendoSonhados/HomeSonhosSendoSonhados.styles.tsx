@@ -55,22 +55,6 @@ export const SonhoCardBanner = styled.div`
   }
 `;
 
-export const SonhoCardButton = styled.a`
-  background-color: ${({ theme }) => theme.colors.primary};
-  background-position: center;
-  background-size: cover;
-  border: 0.2rem solid ${({ theme }) => theme.colors.primary};
-
-  padding: 1rem 2.5rem;
-
-  font-size: ${({ theme }) => theme.font.sizes.xxsmall};
-  font-family: ${({ theme }) => theme.font.family.ptsans};
-
-  color: ${({ theme }) => theme.colors.black};
-
-  text-decoration: none;
-`;
-
 export const SonhoCardContent = styled.div`
   display: flex;
   align-items: flex-start;

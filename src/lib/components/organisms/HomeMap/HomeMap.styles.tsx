@@ -34,21 +34,6 @@ export const Title = styled.h2`
   text-align: left;
 `;
 
-export const Button = styled.a`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.black};
-
-  padding: 1.5rem 4rem;
-  border-radius: 0.5rem;
-
-  font-size: ${({ theme }) => theme.font.sizes.xxsmall};
-  font-family: ${({ theme }) => theme.font.family.ptsans};
-
-  text-transform: uppercase;
-
-  text-decoration: none;
-`;
-
 export const MapImage = styled.img`
   width: 100%;
 `;

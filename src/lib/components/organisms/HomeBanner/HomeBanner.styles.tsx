@@ -60,28 +60,6 @@ export const ButtonWrapper = styled.div`
   gap: ${({ theme }) => theme.spacing.medium};
 `;
 
-export const AnchorButton = styled.a`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.black};
-
-  padding: 1.5rem 3rem;
-  border-radius: 1rem;
-
-  font-size: ${({ theme }) => theme.font.sizes.xsmall};
-  font-family: ${({ theme }) => theme.font.family.ptsans};
-`;
-
-export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.black};
-  border: 0.2rem solid ${({ theme }) => theme.colors.secondary};
-
-  padding: 1.5rem 3rem;
-  border-radius: 1rem;
-
-  font-size: ${({ theme }) => theme.font.sizes.xsmall};
-  font-family: ${({ theme }) => theme.font.family.ptsans};
-`;
-
 export const IllustrationWrapper = styled.div`
   flex: 0.7;
   display: flex;
