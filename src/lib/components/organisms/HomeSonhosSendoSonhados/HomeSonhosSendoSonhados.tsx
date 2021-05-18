@@ -1,5 +1,7 @@
 import Carousel from 'react-multi-carousel';
 
+import { AnchorButton } from 'lib/components/common/Button';
+
 import dreams from './mocked-data/sonhos';
 import * as S from './HomeSonhosSendoSonhados.styles';
 
@@ -44,7 +46,9 @@ const HomeSonhosSendoSonhados = () => {
           <S.SonhoCard key={dream.id}>
             <S.SonhoCardBanner bg={dream.photo}>
               <p>{dream.title}</p>
-              <S.SonhoCardButton href={dream.url}>Sonhar</S.SonhoCardButton>
+              <AnchorButton colorStyle="blueFilled" href={dream.url}>
+                Sonhar
+              </AnchorButton>
             </S.SonhoCardBanner>
 
             <S.SonhoCardContent>

@@ -9,7 +9,7 @@ const HomeCompanies = () => {
         <S.Content>
           <S.Title>Sonhando sonhos juntos</S.Title>
 
-          <AnchorButton colorStyle="filled">VER DETALHES</AnchorButton>
+          <AnchorButton colorStyle="yellowFilled">VER DETALHES</AnchorButton>
 
           <S.CompaniesContainer>
             <img src="/img/companies/bis.svg" />

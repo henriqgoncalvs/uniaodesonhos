@@ -9,7 +9,7 @@ const HomeMap = () => {
       <S.MapSection>
         <S.Title>O impacto de sonhar junto</S.Title>
 
-        <AnchorButton colorStyle="filled">SONHAR</AnchorButton>
+        <AnchorButton colorStyle="yellowFilled">SONHAR</AnchorButton>
 
         <S.MapImage
           src="/img/map.svg"

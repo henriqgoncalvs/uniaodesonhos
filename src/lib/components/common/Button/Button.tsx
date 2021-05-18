@@ -1,6 +1,10 @@
 import * as S from './Button.styles';
 
-function Button({ colorStyle, children, ...rest }: S.ButtonProps) {
+function Button({
+  colorStyle = 'yellowFilled',
+  children,
+  ...rest
+}: S.ButtonProps) {
   return (
     <S.Button colorStyle={colorStyle} {...rest}>
       {children}

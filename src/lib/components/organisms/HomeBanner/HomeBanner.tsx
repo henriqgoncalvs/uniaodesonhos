@@ -13,8 +13,8 @@ const HomeBanner = () => {
           />
           <S.Title>Colocando sonhos no mundo.</S.Title>
           <S.ButtonWrapper>
-            <Button colorStyle="filled">Sonhar</Button>
-            <AnchorButton colorStyle="line" href="/fdaf">
+            <Button colorStyle="yellowFilled">Sonhar</Button>
+            <AnchorButton colorStyle="yellowLine" href="/fdaf">
               Quero apoiar um sonho
             </AnchorButton>
           </S.ButtonWrapper>

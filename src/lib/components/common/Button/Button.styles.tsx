@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
 interface StyledButtonProps {
-  colorStyle: 'filled' | 'line';
+  colorStyle: 'yellowFilled' | 'yellowLine' | 'blueFilled' | 'blueLine';
 }
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -12,13 +12,22 @@ export interface AnchorProps
     StyledButtonProps {}
 
 const typeModifiers = {
-  filled: (theme: DefaultTheme) => css`
+  yellowFilled: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.secondary};
     border: none;
     color: ${theme.colors.black};
   `,
-  line: (theme: DefaultTheme) => css`
+  yellowLine: (theme: DefaultTheme) => css`
     border: 2px solid ${theme.colors.secondary};
+    color: ${theme.colors.black};
+  `,
+  blueFilled: (theme: DefaultTheme) => css`
+    background-color: ${theme.colors.primary};
+    border: none;
+    color: ${theme.colors.black};
+  `,
+  blueLine: (theme: DefaultTheme) => css`
+    border: 2px solid ${theme.colors.primary};
     color: ${theme.colors.black};
   `,
 };
