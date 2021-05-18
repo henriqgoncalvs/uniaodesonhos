@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.breakpoints.notebook};
+  max-width: ${({ theme }) => theme.breakpoints.large};
 
   margin: 0 auto;
 

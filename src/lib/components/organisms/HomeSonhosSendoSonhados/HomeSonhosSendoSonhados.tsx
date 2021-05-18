@@ -8,20 +8,17 @@ import * as S from './HomeSonhosSendoSonhados.styles';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1280 },
-    items: dreams.length < 4 ? dreams.length : 4,
-    slidesToSlide: 1, // optional, default to 1.
+  large: {
+    breakpoint: { max: 1440, min: 1280 },
+    items: dreams.length < 3 ? dreams.length : 3,
   },
-  tablet: {
-    breakpoint: { max: 1280, min: 768 },
+  medium: {
+    breakpoint: { max: 1280, min: 1024 },
     items: 2,
-    slidesToSlide: 1, // optional, default to 1.
   },
-  mobile: {
-    breakpoint: { max: 768, min: 0 },
-    items: 2,
-    slidesToSlide: 1, // optional, default to 1.
+  small: {
+    breakpoint: { max: 1024, min: 0 },
+    items: 1,
   },
 };
 

@@ -30,7 +30,7 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   height: 100%;
-  max-width: ${({ theme }) => theme.breakpoints.notebook};
+  max-width: ${({ theme }) => theme.breakpoints.large};
 
   display: flex;
   align-items: center;

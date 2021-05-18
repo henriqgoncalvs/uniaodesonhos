@@ -20,7 +20,7 @@ export const Title = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.xxlarge};
   color: ${({ theme }) => theme.colors.primary};
 
-  max-width: ${({ theme }) => theme.breakpoints.notebook};
+  max-width: ${({ theme }) => theme.breakpoints.large};
 
   margin-left: auto;
   margin-right: auto;

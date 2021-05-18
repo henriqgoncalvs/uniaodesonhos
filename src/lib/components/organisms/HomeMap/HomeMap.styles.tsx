@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: ${({ theme }) => theme.breakpoints.notebook};
+  max-width: ${({ theme }) => theme.breakpoints.large};
 
   margin: 0 auto;
 
