@@ -1,6 +1,3 @@
-import bannerIllustration from 'assets/img/illustration-banner.svg';
-import uniaoDeSonhosLogo from 'assets/img/uniaodesonhos-logo.svg';
-
 import * as S from './HomeBanner.styles';
 
 const HomeBanner = () => {
@@ -9,7 +6,7 @@ const HomeBanner = () => {
       <S.Wrapper>
         <S.Content>
           <S.UniaoDeSonhosLogo
-            src={uniaoDeSonhosLogo}
+            src="/img/uniaodesonhos-logo.svg"
             alt="Logo escrito União de Sonhos com uma nuvem ao lado esquerdo"
           />
           <S.Title>Colocando sonhos no mundo.</S.Title>
@@ -20,7 +17,7 @@ const HomeBanner = () => {
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration
-            src={bannerIllustration}
+            src="/img/illustration-banner.svg"
             alt="Uma menina brincando com o mascote da União de Sonhos"
           />
         </S.IllustrationWrapper>

@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
+  max-width: ${({ theme }) => theme.breakpoints.notebook};
 
   margin: 0 auto;
 
-  margin-top: ${({ theme }) => theme.spacing.xlarge};
-  margin-bottom: ${({ theme }) => theme.spacing.small};
+  margin-top: ${({ theme }) => theme.spacing.xxxlarge};
+  margin-bottom: ${({ theme }) => theme.spacing.xxxlarge};
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.xxlarge};
+
+  padding: 0 ${({ theme }) => theme.spacing.xxlarge};
 `;
 
 export const MapSection = styled.div`

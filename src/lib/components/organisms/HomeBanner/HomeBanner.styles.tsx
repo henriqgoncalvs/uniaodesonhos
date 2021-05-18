@@ -12,7 +12,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding-bottom: 20vh;
+  padding: 0 ${({ theme }) => theme.spacing.xxlarge} 20vh;
 `;
 
 export const Wrapper = styled.div`
@@ -40,7 +40,7 @@ export const UniaoDeSonhosLogo = styled.img`
 `;
 
 export const Title = styled.h1`
-  width: 60%;
+  width: 80%;
 
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xxlarge};
@@ -62,7 +62,7 @@ export const ButtonWrapper = styled.div`
 
 export const AnchorButton = styled.a`
   background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 
   padding: 1.5rem 3rem;
   border-radius: 1rem;
@@ -72,7 +72,7 @@ export const AnchorButton = styled.a`
 `;
 
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.black};
   border: 0.2rem solid ${({ theme }) => theme.colors.secondary};
 
   padding: 1.5rem 3rem;

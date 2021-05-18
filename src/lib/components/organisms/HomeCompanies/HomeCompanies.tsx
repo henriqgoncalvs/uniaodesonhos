@@ -1,5 +1,3 @@
-import illustrationCompanies from 'assets/img/illustration-companies.svg';
-
 import * as S from './HomeCompanies.styles';
 
 const HomeCompanies = () => {
@@ -25,7 +23,7 @@ const HomeCompanies = () => {
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration
-            src={illustrationCompanies}
+            src="/img/illustration-companies.svg"
             alt="Dois mascotes da União de Sonhos brincando"
           />
         </S.IllustrationWrapper>

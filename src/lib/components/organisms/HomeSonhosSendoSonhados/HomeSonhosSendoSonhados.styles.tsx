@@ -2,6 +2,7 @@ import styled, { DefaultTheme } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  max-width: 1440px;
 
   margin: 0 auto;
 
@@ -19,7 +20,7 @@ export const Title = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.xxlarge};
   color: ${({ theme }) => theme.colors.primary};
 
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
+  max-width: ${({ theme }) => theme.breakpoints.notebook};
 
   margin-left: auto;
   margin-right: auto;

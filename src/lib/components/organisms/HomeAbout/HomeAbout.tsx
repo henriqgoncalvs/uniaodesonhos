@@ -1,6 +1,3 @@
-import aboutIllustration from 'assets/img/illustration-about.svg';
-import bgCompanies from 'assets/img/illustration-org-bg-about.svg';
-
 import companies from './mocked-data/companies';
 import * as S from './HomeAbout.styles';
 
@@ -10,7 +7,7 @@ const HomeAbout = () => {
       <S.UniaoWrapper>
         <S.IllustrationWrapper>
           <S.Illustration
-            src={aboutIllustration}
+            src="/img/illustration-about.svg"
             alt="Mascote da União de Sonhos brincando com um balão"
           />
         </S.IllustrationWrapper>
@@ -48,7 +45,7 @@ const HomeAbout = () => {
 
           <S.CompanyImageWrapper>
             <S.CompanyLogo src={company.logo} alt={company.title} />
-            <S.CompanyBackground src={bgCompanies} />
+            <S.CompanyBackground src="/img/illustration-org-bg-about.svg" />
           </S.CompanyImageWrapper>
         </S.CompanyWrapper>
       ))}

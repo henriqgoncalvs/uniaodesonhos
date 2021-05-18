@@ -1,8 +1,7 @@
 import styled, { DefaultTheme } from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
+  max-width: ${({ theme }) => theme.breakpoints.notebook};
 
   margin: 0 auto;
 
@@ -13,6 +12,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding: 0 ${({ theme }) => theme.spacing.xxlarge};
 `;
 
 export const UniaoWrapper = styled.div`

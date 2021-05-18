@@ -30,7 +30,7 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   height: 100%;
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
+  max-width: ${({ theme }) => theme.breakpoints.notebook};
 
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
 
   gap: ${({ theme }) => theme.spacing.xxlarge};
 
-  padding-top: 5rem;
+  padding: 5rem ${({ theme }) => theme.spacing.xxlarge} 0;
 
   position: relative;
   z-index: 2;

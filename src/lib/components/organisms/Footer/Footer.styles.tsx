@@ -9,9 +9,11 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.breakpoints.desktop};
+  max-width: ${({ theme }) => theme.breakpoints.notebook};
 
   margin: 0 auto;
+
+  padding: 0 ${({ theme }) => theme.spacing.xxlarge};
 
   display: flex;
   align-items: flex-end;
@@ -46,7 +48,7 @@ export const FooterText = styled.p`
   flex: 0.7;
 
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.large};
+    font-size: ${theme.font.sizes.medium};
     font-family: ${theme.font.family.lato};
     font-weight: 400;
     color: ${theme.colors.black};

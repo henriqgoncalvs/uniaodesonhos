@@ -1,6 +1,6 @@
 export default {
-  desktop: '1300px',
-  notebook: '1024px',
+  desktop: '1440px',
+  notebook: '1280px',
   tablet: '768px',
   mobile: '481px',
 };
