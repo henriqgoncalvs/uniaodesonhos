@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 import homeBannerBg from 'assets/img/home-banner-bg.svg';
 
@@ -19,11 +20,15 @@ export const Wrapper = styled.div`
   height: 100%;
   max-width: ${({ theme }) => theme.breakpoints.desktop};
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+    gap: ${({ theme }) => theme.spacing.xxlarge};
 
-  gap: ${({ theme }) => theme.spacing.xxlarge};
+    ${media.lessThan('medium')`
+      flex-direction: column-reverse;
+      gap: ${({ theme }) => theme.spacing.medium};
+    `}
+  `}
 `;
 
 export const Content = styled.div`
@@ -33,31 +38,57 @@ export const Content = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing.xsmall};
+
+  ${media.lessThan('medium')`
+    align-items: center;
+  `}
 `;
 
 export const UniaoDeSonhosLogo = styled.img`
   width: 80%;
+
+  ${media.lessThan('small')`
+    width: 100%;
+  `}
 `;
 
 export const Title = styled.h1`
-  width: 80%;
-
   ${({ theme }) => css`
+    width: 80%;
     font-size: ${theme.font.sizes.xxlarge};
     font-family: ${theme.font.family.lato};
     font-weight: 400;
     color: ${theme.colors.white};
     margin-top: ${({ theme }) => theme.spacing.xxsmall};
+
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.xlarge};
+      text-align: center;
+      width: 100%;
+    `}
+
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.large};
+    `}
   `}
 `;
 
 export const ButtonWrapper = styled.div`
-  display: flex;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.center}
+    justify-content: flex-start;
+    gap: ${theme.spacing.medium};
 
-  align-items: center;
-  justify-content: flex-start;
+    ${media.lessThan('medium')`
+      justify-content: center;
+      flex-direction: column;
+      gap: ${theme.spacing.xxsmall};
 
-  gap: ${({ theme }) => theme.spacing.medium};
+      > button {
+        min-width: 100%;
+      }
+    `}
+  `}
 `;
 
 export const IllustrationWrapper = styled.div`
@@ -69,4 +100,8 @@ export const IllustrationWrapper = styled.div`
 
 export const Illustration = styled.img`
   width: 100%;
+
+  ${media.lessThan('medium')`
+    width: 70%;
+  `}
 `;

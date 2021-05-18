@@ -71,8 +71,10 @@ const commonStyles = ({
   font-family: ${theme.font.family.ptsans};
 
   text-decoration: none;
+  text-align: center;
 
   transition: all 0.2s ease-in-out;
+
 
   &:hover {
     filter: brightness(110%);
