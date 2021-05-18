@@ -1,4 +1,5 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.large};
@@ -56,11 +57,13 @@ export const Description = styled.p`
 `;
 
 export const WordsLine = styled.div`
-  width: 100%;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+  `}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `}
 
   margin-top: ${({ theme }) => theme.spacing.xlarge};
   margin-bottom: ${({ theme }) => theme.spacing.small};
@@ -70,6 +73,10 @@ export const Word = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.xxlarge};
   font-family: ${({ theme }) => theme.font.family.pilat};
   font-weight: ${({ theme }) => theme.font.black};
+
+  ${media.lessThan('medium')`
+    font-size: ${({ theme }) => theme.font.sizes.xlarge};
+  `}
 
   color: ${({
     theme,

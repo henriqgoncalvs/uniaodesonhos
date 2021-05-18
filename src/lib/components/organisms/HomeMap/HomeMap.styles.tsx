@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.large};
@@ -8,9 +9,14 @@ export const Container = styled.div`
   margin-top: ${({ theme }) => theme.spacing.xxxlarge};
   margin-bottom: ${({ theme }) => theme.spacing.xxxlarge};
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+  `}
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `}
+
   gap: ${({ theme }) => theme.spacing.xxlarge};
 
   padding: 0 ${({ theme }) => theme.spacing.xxlarge};
@@ -39,6 +45,8 @@ export const MapImage = styled.img`
 `;
 
 export const DataContainer = styled.div`
+  max-width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;

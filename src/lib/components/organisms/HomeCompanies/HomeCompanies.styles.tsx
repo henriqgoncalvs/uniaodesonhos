@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   display: flex;
@@ -32,9 +33,13 @@ export const Wrapper = styled.div`
   height: 100%;
   max-width: ${({ theme }) => theme.breakpoints.large};
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+  `}
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `}
 
   gap: ${({ theme }) => theme.spacing.xxlarge};
 
