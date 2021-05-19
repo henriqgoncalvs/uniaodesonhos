@@ -78,7 +78,6 @@ const GlobalProvider: FC = ({ children }) => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content="#66D3E6" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#66D3E6" />

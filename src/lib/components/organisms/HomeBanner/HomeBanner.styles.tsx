@@ -77,15 +77,20 @@ export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
     ${theme.utils.display.flex.center}
     justify-content: flex-start;
-    gap: ${theme.spacing.medium};
+
+    > button {
+      margin-right: ${theme.spacing.medium};
+    }
 
     ${media.lessThan('medium')`
       justify-content: center;
       flex-direction: column;
-      gap: ${theme.spacing.xxsmall};
+      gap: 0;
 
       > button {
         min-width: 100%;
+        margin-right: 0;
+        margin-bottom: ${theme.spacing.xxsmall};
       }
     `}
   `}
@@ -101,7 +106,7 @@ export const IllustrationWrapper = styled.div`
 export const Illustration = styled.img`
   width: 100%;
 
-  ${media.lessThan('medium')`
+  ${media.between('small', 'medium')`
     width: 70%;
   `}
 `;
