@@ -28,7 +28,7 @@ const Home = ({ deviceType }: Props) => {
         mapRef={mapRef}
         companiesRef={companiesRef}
       />
-      <HomeBanner refProp={homeRef} />
+      <HomeBanner refProp={homeRef} dreamsRef={dreamsRef} />
       <HomeAbout refProp={aboutRef} />
       <HomeSonhosSendoSonhados refProp={dreamsRef} deviceType={deviceType} />
       <HomeMap refProp={mapRef} />

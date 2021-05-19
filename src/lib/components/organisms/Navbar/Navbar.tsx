@@ -36,14 +36,16 @@ const Navbar = ({
             Home
           </S.Link>
           <S.Link onClick={() => aboutRef?.current?.scrollIntoView()}>
-            About
+            Sobre União de Sonhos
           </S.Link>
           <S.Link onClick={() => dreamsRef?.current?.scrollIntoView()}>
-            Dreams
+            Sonhos sendo sonhados
           </S.Link>
-          <S.Link onClick={() => mapRef?.current?.scrollIntoView()}>Map</S.Link>
+          <S.Link onClick={() => mapRef?.current?.scrollIntoView()}>
+            O impacto de sonhar
+          </S.Link>
           <S.Link onClick={() => companiesRef?.current?.scrollIntoView()}>
-            Companies
+            Parceiros
           </S.Link>
         </S.LinksWrapper>
 

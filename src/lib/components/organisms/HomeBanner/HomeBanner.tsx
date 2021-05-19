@@ -1,14 +1,15 @@
 import { RefObject } from 'react';
 
-import { AnchorButton, Button } from 'lib/components/common/Button';
+import { Button } from 'lib/components/common/Button';
 
 import * as S from './HomeBanner.styles';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
+  dreamsRef: RefObject<HTMLDivElement>;
 }
 
-const HomeBanner = ({ refProp }: Props) => {
+const HomeBanner = ({ refProp, dreamsRef }: Props) => {
   return (
     <S.Container ref={refProp}>
       <S.Wrapper>
@@ -20,9 +21,12 @@ const HomeBanner = ({ refProp }: Props) => {
           <S.Title>Colocando sonhos no mundo.</S.Title>
           <S.ButtonWrapper>
             <Button colorStyle="yellowFilled">Sonhar</Button>
-            <AnchorButton colorStyle="yellowLine" href="/fdaf">
+            <Button
+              colorStyle="yellowLine"
+              onClick={() => dreamsRef?.current?.scrollIntoView()}
+            >
               Quero apoiar um sonho
-            </AnchorButton>
+            </Button>
           </S.ButtonWrapper>
         </S.Content>
         <S.IllustrationWrapper>

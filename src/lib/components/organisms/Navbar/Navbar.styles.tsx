@@ -23,7 +23,7 @@ export const Container = styled.div<NavbarProps>`
 
     justify-content: flex-start;
 
-    padding-left: 20rem;
+    padding-left: 12rem;
 
     ${media.lessThan('small')`
       padding-left: 0;
