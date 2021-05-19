@@ -1,3 +1,4 @@
+import { RefObject } from 'react';
 import Carousel from 'react-multi-carousel';
 
 import { AnchorButton } from 'lib/components/common/Button';
@@ -9,6 +10,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 interface Props {
   deviceType: string;
+  refProp: RefObject<HTMLDivElement>;
 }
 
 const responsive = {
@@ -29,9 +31,9 @@ const responsive = {
   },
 };
 
-const HomeSonhosSendoSonhados = ({ deviceType }: Props) => {
+const HomeSonhosSendoSonhados = ({ deviceType, refProp }: Props) => {
   return (
-    <S.Container>
+    <S.Container ref={refProp}>
       <S.Title>Sonhos sendo sonhados</S.Title>
       <Carousel
         deviceType={deviceType}

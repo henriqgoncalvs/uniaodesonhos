@@ -1,9 +1,15 @@
+import { RefObject } from 'react';
+
 import companies from './mocked-data/companies';
 import * as S from './HomeAbout.styles';
 
-const HomeAbout = () => {
+interface Props {
+  refProp: RefObject<HTMLDivElement>;
+}
+
+const HomeAbout = ({ refProp }: Props) => {
   return (
-    <S.Container>
+    <S.Container ref={refProp}>
       <S.UniaoWrapper>
         <S.IllustrationWrapper>
           <S.Illustration

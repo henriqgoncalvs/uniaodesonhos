@@ -1,10 +1,16 @@
+import { RefObject } from 'react';
+
 import { AnchorButton, Button } from 'lib/components/common/Button';
 
 import * as S from './HomeBanner.styles';
 
-const HomeBanner = () => {
+interface Props {
+  refProp: RefObject<HTMLDivElement>;
+}
+
+const HomeBanner = ({ refProp }: Props) => {
   return (
-    <S.Container>
+    <S.Container ref={refProp}>
       <S.Wrapper>
         <S.Content>
           <S.UniaoDeSonhosLogo

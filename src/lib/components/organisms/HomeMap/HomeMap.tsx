@@ -1,11 +1,17 @@
+import { RefObject } from 'react';
+
 import { AnchorButton } from 'lib/components/common/Button';
 
 import mapData from './mocked-data/map-data';
 import * as S from './HomeMap.styles';
 
-const HomeMap = () => {
+interface Props {
+  refProp: RefObject<HTMLDivElement>;
+}
+
+const HomeMap = ({ refProp }: Props) => {
   return (
-    <S.Container>
+    <S.Container ref={refProp}>
       <S.MapSection>
         <S.Title>O impacto de sonhar junto</S.Title>
 

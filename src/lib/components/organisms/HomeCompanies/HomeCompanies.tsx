@@ -1,14 +1,17 @@
+import { RefObject } from 'react';
+
 import { AnchorButton } from 'lib/components/common/Button';
 
 import * as S from './HomeCompanies.styles';
 
 interface Props {
   deviceType: string;
+  refProp: RefObject<HTMLDivElement>;
 }
 
-const HomeCompanies = ({ deviceType }: Props) => {
+const HomeCompanies = ({ deviceType, refProp }: Props) => {
   return (
-    <S.Container>
+    <S.Container ref={refProp}>
       <S.Wrapper>
         <S.Content>
           <S.Title>Sonhando sonhos juntos</S.Title>
