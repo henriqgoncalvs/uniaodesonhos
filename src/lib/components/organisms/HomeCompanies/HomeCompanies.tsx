@@ -2,7 +2,11 @@ import { AnchorButton } from 'lib/components/common/Button';
 
 import * as S from './HomeCompanies.styles';
 
-const HomeCompanies = () => {
+interface Props {
+  deviceType: string;
+}
+
+const HomeCompanies = ({ deviceType }: Props) => {
   return (
     <S.Container>
       <S.Wrapper>
@@ -31,9 +35,11 @@ const HomeCompanies = () => {
         </S.IllustrationWrapper>
       </S.Wrapper>
 
-      <S.Background>
-        <img src="/img/bg-companies.png" />
-      </S.Background>
+      {deviceType === 'desktop' && (
+        <S.Background>
+          <img src="/img/bg-companies.png" />
+        </S.Background>
+      )}
     </S.Container>
   );
 };

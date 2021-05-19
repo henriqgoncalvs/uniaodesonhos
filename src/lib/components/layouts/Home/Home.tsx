@@ -16,7 +16,7 @@ const Home = ({ deviceType }: Props) => {
       <HomeAbout />
       <HomeSonhosSendoSonhados deviceType={deviceType} />
       <HomeMap />
-      <HomeCompanies />
+      <HomeCompanies deviceType={deviceType} />
       <Footer />
     </>
   );

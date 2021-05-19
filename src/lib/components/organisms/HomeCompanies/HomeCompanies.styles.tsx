@@ -10,6 +10,12 @@ export const Container = styled.div`
   padding-bottom: 13rem;
 
   position: relative;
+
+  ${media.lessThan('medium')`
+    background-color: ${({ theme }) => theme.colors.primary};
+  `}
+
+  overflow: hidden;
 `;
 
 export const Background = styled.div`
@@ -67,6 +73,10 @@ export const Title = styled.h2`
   text-align: left;
 
   margin-bottom: ${({ theme }) => theme.spacing.xxsmall};
+
+  ${media.lessThan('medium')`
+    margin-top: 0;
+  `}
 `;
 
 export const CompaniesContainer = styled.div`
@@ -75,10 +85,18 @@ export const CompaniesContainer = styled.div`
 
   gap: ${({ theme }) => theme.spacing.large};
 
+  ${media.lessThan('large')`
+    align-items: center;
+  `}
+
   img {
     width: 100%;
     max-width: 15rem;
     min-width: 8rem;
+
+    ${media.lessThan('large')`
+      margin: 0 auto;
+    `}
   }
 `;
 
@@ -91,5 +109,8 @@ export const IllustrationWrapper = styled.div`
 
 export const Illustration = styled.img`
   width: 80%;
-  padding-top: 12rem;
+
+  ${media.greaterThan('large')`
+    padding-top: 12rem;
+  `}
 `;

@@ -77,14 +77,8 @@ export const WordsLine = styled.div`
   ${({ theme }) => css`
     ${theme.utils.display.flex.spaceBetween}
 
-    /* margin-top: ${theme.spacing.xlarge}; */
-    /* margin-bottom: ${theme.spacing.small}; */
-
     ${media.lessThan('medium')`
       flex-direction: column;
-
-      /* margin-top: 0; */
-      /* margin-bottom: ${theme.spacing.medium}; */
     `}
   `}
 `;
@@ -94,6 +88,13 @@ export const Word = styled.p`
     font-size: ${theme.font.sizes.xxlarge};
     font-family: ${theme.font.family.pilat};
     font-weight: ${theme.font.black};
+
+    margin-left: ${theme.font.sizes.medium};
+    margin-right: ${theme.font.sizes.medium};
+
+    ${media.lessThan('large')`
+      font-size: ${theme.font.sizes.xlarge};
+    `}
 
     ${media.lessThan('medium')`
       font-size: ${theme.font.sizes.xxlarge};
@@ -128,7 +129,7 @@ export const CompanyWrapper = styled.div`
     flex-direction: column-reverse;
   `}
 
-  margin-top: ${({ theme }) => theme.spacing.xlarge};
+  /* margin-top: ${({ theme }) => theme.spacing.xlarge}; */
   margin-bottom: ${({ theme }) => theme.spacing.small};
 
   & > div {
