@@ -7,37 +7,45 @@ import * as S from './HomeSonhosSendoSonhados.styles';
 
 import 'react-multi-carousel/lib/styles.css';
 
+interface Props {
+  deviceType: string;
+}
+
 const responsive = {
-  large: {
-    breakpoint: { max: 1440, min: 1280 },
-    items: dreams.length < 3 ? dreams.length : 3,
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    paritialVisibilityGutter: 60,
   },
-  medium: {
-    breakpoint: { max: 1280, min: 1024 },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
     items: 2,
+    paritialVisibilityGutter: 50,
   },
-  small: {
-    breakpoint: { max: 1024, min: 0 },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
     items: 1,
+    paritialVisibilityGutter: 50,
   },
 };
 
-const HomeSonhosSendoSonhados = () => {
+const HomeSonhosSendoSonhados = ({ deviceType }: Props) => {
   return (
     <S.Container>
       <S.Title>Sonhos sendo sonhados</S.Title>
-
       <Carousel
-        centerMode
+        deviceType={deviceType}
+        partialVisible
         arrows
         draggable
         ssr
         responsive={responsive}
+        removeArrowOnDeviceType={['mobile']}
         infinite
-        autoPlay
+        // autoPlay
         autoPlaySpeed={3000}
-        slidesToSlide={1}
         swipeable
+        itemClass="carousel-item"
       >
         {dreams.map((dream) => (
           <S.SonhoCard key={dream.id}>

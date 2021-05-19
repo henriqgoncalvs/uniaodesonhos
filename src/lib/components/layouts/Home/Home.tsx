@@ -5,12 +5,16 @@ import HomeCompanies from 'lib/components/organisms/HomeCompanies';
 import HomeMap from 'lib/components/organisms/HomeMap';
 import HomeSonhosSendoSonhados from 'lib/components/organisms/HomeSonhosSendoSonhados';
 
-const Home = () => {
+interface Props {
+  deviceType: string;
+}
+
+const Home = ({ deviceType }: Props) => {
   return (
     <>
       <HomeBanner />
       <HomeAbout />
-      <HomeSonhosSendoSonhados />
+      <HomeSonhosSendoSonhados deviceType={deviceType} />
       <HomeMap />
       <HomeCompanies />
       <Footer />

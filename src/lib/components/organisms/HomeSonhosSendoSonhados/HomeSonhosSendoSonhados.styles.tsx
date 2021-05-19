@@ -1,4 +1,5 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,10 +10,18 @@ export const Container = styled.div`
   margin-top: ${({ theme }) => theme.spacing.xxxlarge};
   margin-bottom: ${({ theme }) => theme.spacing.small};
 
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: ${({ theme }) => theme.spacing.xxlarge}; */
+  ${({ theme }) => css`
+    ${media.lessThan('medium')`
+        margin-top: ${theme.spacing.small};
+        margin-bottom: ${theme.spacing.small};
+    `}
+
+    .carousel-item {
+      ${media.lessThan('small')`
+        ${theme.utils.display.flex.center}
+      `}
+    }
+  `}
 `;
 
 export const Title = styled.h2`
@@ -25,16 +34,21 @@ export const Title = styled.h2`
   margin-left: auto;
   margin-right: auto;
 
-  width: 100%;
   text-align: center;
+
+  padding: 0 ${({ theme }) => theme.spacing.xxlarge};
+
+  ${media.lessThan('medium')`
+    padding-left: ${({ theme }) => theme.spacing.medium};
+    padding-right: ${({ theme }) => theme.spacing.medium};
+  `}
 `;
 
 export const SonhoCard = styled.div`
   display: flex;
   flex-direction: column;
 
-  flex: 0.25;
-  max-width: 30rem;
+  width: 95%;
 `;
 
 export const SonhoCardBanner = styled.div`
