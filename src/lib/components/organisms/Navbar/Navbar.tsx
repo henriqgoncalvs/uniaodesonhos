@@ -18,7 +18,7 @@ const Navbar = ({
   mapRef,
   companiesRef,
 }: Props) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const toggleMenu = () => setOpen(!open);
 

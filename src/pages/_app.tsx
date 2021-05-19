@@ -11,6 +11,7 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalProvider>
+      <div id="modal-root" />
       <Component {...pageProps} />
     </GlobalProvider>
   );
