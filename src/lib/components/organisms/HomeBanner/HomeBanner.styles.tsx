@@ -14,6 +14,11 @@ export const Container = styled.div`
   justify-content: center;
 
   padding: 0 ${({ theme }) => theme.spacing.xxlarge} 20vh;
+
+  ${media.lessThan('medium')`
+    padding-left: ${({ theme }) => theme.spacing.medium};
+    padding-right: ${({ theme }) => theme.spacing.medium};
+  `}
 `;
 
 export const Wrapper = styled.div`

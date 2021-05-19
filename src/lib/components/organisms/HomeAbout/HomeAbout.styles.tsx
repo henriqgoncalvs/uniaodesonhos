@@ -15,14 +15,25 @@ export const Container = styled.div`
   justify-content: center;
 
   padding: 0 ${({ theme }) => theme.spacing.xxlarge};
+
+  ${media.lessThan('medium')`
+    padding: 0 ${({ theme }) => theme.spacing.medium};
+  `}
 `;
 
 export const UniaoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+  `}
 
-  gap: ${({ theme }) => theme.spacing.xxlarge};
+  margin-right: ${({ theme }) => theme.spacing.xxlarge};
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+
+    margin-right: 0;
+    margin-bottom: ${({ theme }) => theme.spacing.medium};
+  `}
 `;
 
 export const IllustrationWrapper = styled.div`
@@ -40,6 +51,12 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
+  ${media.lessThan('medium')`
+    text-align: center;
+
+    align-items: center;
+  `}
 `;
 
 export const Title = styled.h2`
@@ -59,23 +76,34 @@ export const Description = styled.p`
 export const WordsLine = styled.div`
   ${({ theme }) => css`
     ${theme.utils.display.flex.spaceBetween}
-  `}
 
-  ${media.lessThan('medium')`
-    flex-direction: column;
-  `}
+    /* margin-top: ${theme.spacing.xlarge}; */
+    /* margin-bottom: ${theme.spacing.small}; */
 
-  margin-top: ${({ theme }) => theme.spacing.xlarge};
-  margin-bottom: ${({ theme }) => theme.spacing.small};
+    ${media.lessThan('medium')`
+      flex-direction: column;
+
+      /* margin-top: 0; */
+      /* margin-bottom: ${theme.spacing.medium}; */
+    `}
+  `}
 `;
 
 export const Word = styled.p`
-  font-size: ${({ theme }) => theme.font.sizes.xxlarge};
-  font-family: ${({ theme }) => theme.font.family.pilat};
-  font-weight: ${({ theme }) => theme.font.black};
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xxlarge};
+    font-family: ${theme.font.family.pilat};
+    font-weight: ${theme.font.black};
 
-  ${media.lessThan('medium')`
-    font-size: ${({ theme }) => theme.font.sizes.xlarge};
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.xxlarge};
+      margin: ${theme.font.sizes.xlarge} 0;
+    `}
+
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.xlarge};
+      margin: ${theme.font.sizes.medium} 0;
+    `}
   `}
 
   color: ${({
@@ -96,10 +124,21 @@ export const CompanyWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  ${media.lessThan('medium')`
+    flex-direction: column-reverse;
+  `}
+
   margin-top: ${({ theme }) => theme.spacing.xlarge};
   margin-bottom: ${({ theme }) => theme.spacing.small};
 
-  gap: ${({ theme }) => theme.spacing.xxlarge};
+  & > div {
+    margin-right: ${({ theme }) => theme.spacing.xxlarge};
+
+    ${media.lessThan('medium')`
+      margin-right: 0;
+      margin-top: ${({ theme }) => theme.spacing.xxlarge};
+    `}
+  }
 `;
 
 export const CompanyTitle = styled.h3`
