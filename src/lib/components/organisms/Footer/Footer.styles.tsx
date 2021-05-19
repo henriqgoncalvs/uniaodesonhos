@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   width: 100%;
@@ -15,9 +16,13 @@ export const Wrapper = styled.div`
 
   padding: 0 ${({ theme }) => theme.spacing.xxlarge};
 
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.spaceBetween}
+
+    ${media.lessThan('small')`
+      flex-direction: column;
+    `}
+  `}
 
   gap: ${({ theme }) => theme.spacing.xxlarge};
 `;
@@ -57,4 +62,8 @@ export const FooterText = styled.p`
   `}
 
   text-align: right;
+
+  ${media.lessThan('small')`
+    text-align: center;
+  `}
 `;
