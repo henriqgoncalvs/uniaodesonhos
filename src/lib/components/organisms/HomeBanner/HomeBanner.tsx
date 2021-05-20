@@ -13,7 +13,7 @@ interface Props {
 }
 
 const HomeBanner = ({ refProp, dreamsRef }: Props) => {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const notify = useCallback((type, message) => {
     toast({ type, message });
