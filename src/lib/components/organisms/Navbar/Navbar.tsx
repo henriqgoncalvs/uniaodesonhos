@@ -22,6 +22,31 @@ const Navbar = ({
 
   const toggleMenu = () => setOpen(!open);
 
+  const scrollHome = () => {
+    toggleMenu();
+    homeRef?.current?.scrollIntoView();
+  };
+
+  const scrollAbout = () => {
+    toggleMenu();
+    aboutRef?.current?.scrollIntoView();
+  };
+
+  const scrollDreams = () => {
+    toggleMenu();
+    dreamsRef?.current?.scrollIntoView();
+  };
+
+  const scrollMap = () => {
+    toggleMenu();
+    mapRef?.current?.scrollIntoView();
+  };
+
+  const scrollCompanies = () => {
+    toggleMenu();
+    companiesRef?.current?.scrollIntoView();
+  };
+
   return (
     <>
       <S.OpenButton open={open} onClick={toggleMenu}>
@@ -32,21 +57,11 @@ const Navbar = ({
           <div />
         </S.CloseButton>
         <S.LinksWrapper>
-          <S.Link onClick={() => homeRef?.current?.scrollIntoView()}>
-            Home
-          </S.Link>
-          <S.Link onClick={() => aboutRef?.current?.scrollIntoView()}>
-            Sobre União de Sonhos
-          </S.Link>
-          <S.Link onClick={() => dreamsRef?.current?.scrollIntoView()}>
-            Sonhos sendo sonhados
-          </S.Link>
-          <S.Link onClick={() => mapRef?.current?.scrollIntoView()}>
-            O impacto de sonhar
-          </S.Link>
-          <S.Link onClick={() => companiesRef?.current?.scrollIntoView()}>
-            Parceiros
-          </S.Link>
+          <S.Link onClick={scrollHome}>Home</S.Link>
+          <S.Link onClick={scrollAbout}>Sobre União de Sonhos</S.Link>
+          <S.Link onClick={scrollDreams}>Sonhos sendo sonhados</S.Link>
+          <S.Link onClick={scrollMap}>O impacto de sonhar</S.Link>
+          <S.Link onClick={scrollCompanies}>Parceiros</S.Link>
         </S.LinksWrapper>
 
         <S.NavFooter>
