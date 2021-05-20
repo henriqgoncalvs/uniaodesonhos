@@ -1,9 +1,12 @@
 import { FC } from 'react';
+import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'lib/styles/global.style';
 import theme from 'lib/styles/theme';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const GlobalProvider: FC = ({ children }) => {
   return (
@@ -84,6 +87,15 @@ const GlobalProvider: FC = ({ children }) => {
         <title>União de Sonhos</title>
       </Head>
       <GlobalStyle />
+      <ToastContainer
+        position="top-right"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        draggable={false}
+        closeOnClick
+        pauseOnHover
+      />
       {children}
     </ThemeProvider>
   );

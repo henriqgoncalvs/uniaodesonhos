@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
+import FormDream from './FormDream';
 import * as S from './Modal.styles';
 
 interface Props {
@@ -53,5 +54,7 @@ const Modal = ({ open, setOpen, children, title }: Props) => {
     return <></>;
   }
 };
+
+Modal.FormDream = FormDream;
 
 export default Modal;

@@ -18,6 +18,8 @@ export const ModalOverlay = styled.div<ModalProps>`
 
   transition: 650ms;
 
+  z-index: 100000;
+
   ${({ open }) =>
     open
       ? css`
@@ -47,6 +49,12 @@ export const Modal = styled.div`
   transition: 835ms;
 
   position: relative;
+
+  ${media.lessThan('small')`
+    padding-top: 2rem;
+    height: 80%;
+    max-height: initial;
+  `}
 `;
 
 export const ModalHeader = styled.div`
@@ -61,6 +69,10 @@ export const ModalBody = styled.div`
   padding-top: 2rem;
   padding-bottom: 2rem;
   height: 100%;
+
+  ${({ theme }) => css`
+    ${theme.utils.display.flex.center}
+  `};
 `;
 
 export const CloseButton = styled.div`

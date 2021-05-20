@@ -14,4 +14,5 @@ export default {
   warning: '#AE8F0C',
   error: '#D94848',
   info: '#0CAEAE',
+  input: '#94e1ee',
 };
