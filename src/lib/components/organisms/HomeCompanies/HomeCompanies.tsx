@@ -1,15 +1,17 @@
 import { RefObject } from 'react';
 
 import { AnchorButton } from 'lib/components/common/Button';
+import useDeviceType from 'lib/hooks/useDeviceType';
 
 import * as S from './HomeCompanies.styles';
 
 interface Props {
-  deviceType: string;
   refProp: RefObject<HTMLDivElement>;
 }
 
-const HomeCompanies = ({ deviceType, refProp }: Props) => {
+const HomeCompanies = ({ refProp }: Props) => {
+  const deviceType = useDeviceType();
+
   return (
     <S.Container ref={refProp}>
       <S.Wrapper>

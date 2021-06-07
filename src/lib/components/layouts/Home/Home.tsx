@@ -8,11 +8,7 @@ import HomeMap from 'lib/components/organisms/HomeMap';
 import HomeSonhosSendoSonhados from 'lib/components/organisms/HomeSonhosSendoSonhados';
 import Navbar from 'lib/components/organisms/Navbar';
 
-interface Props {
-  deviceType: string;
-}
-
-const Home = ({ deviceType }: Props) => {
+const Home = () => {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const dreamsRef = useRef<HTMLDivElement>(null);
@@ -30,9 +26,9 @@ const Home = ({ deviceType }: Props) => {
       />
       <HomeBanner refProp={homeRef} dreamsRef={dreamsRef} />
       <HomeAbout refProp={aboutRef} />
-      <HomeSonhosSendoSonhados refProp={dreamsRef} deviceType={deviceType} />
+      <HomeSonhosSendoSonhados refProp={dreamsRef} />
       <HomeMap refProp={mapRef} />
-      <HomeCompanies refProp={companiesRef} deviceType={deviceType} />
+      <HomeCompanies refProp={companiesRef} />
       <Footer />
     </>
   );

@@ -1,34 +1,25 @@
-import { NextPage, NextPageContext } from 'next';
-import UAParser from 'ua-parser-js';
+import { GetStaticProps, NextPage } from 'next';
 
+import client from 'core/graphql/client';
+import GET_LANDING_PAGE from 'core/graphql/queries/getLandingPage';
 import HomeLayout from 'lib/components/layouts/Home';
 
 interface Props {
   deviceType: string;
 }
 
-const Home: NextPage<Props> = ({ deviceType }) => {
-  return <HomeLayout deviceType={deviceType} />;
+const Home: NextPage<Props> = () => {
+  return <HomeLayout />;
 };
 
-Home.getInitialProps = async (context: NextPageContext) => {
-  let userAgent;
+export const getStaticProps: GetStaticProps = async () => {
+  const { landingPage } = await client.request(GET_LANDING_PAGE);
 
-  if (context.req) {
-    userAgent = context.req.headers['user-agent'];
-  } else {
-    userAgent = navigator.userAgent || '';
-  }
-
-  if (userAgent) {
-    const parser = new UAParser();
-    parser.setUA(userAgent);
-    const result = parser.getResult();
-    const deviceType = (result.device && result.device.type) || 'desktop';
-    return { deviceType };
-  }
-
-  return { deviceType: '' };
+  return {
+    props: {
+      ...landingPage,
+    },
+  };
 };
 
 export default Home;

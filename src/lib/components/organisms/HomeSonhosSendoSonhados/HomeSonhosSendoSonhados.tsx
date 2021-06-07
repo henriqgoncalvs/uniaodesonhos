@@ -2,6 +2,7 @@ import { RefObject } from 'react';
 import Carousel from 'react-multi-carousel';
 
 import { AnchorButton } from 'lib/components/common/Button';
+import useDeviceType from 'lib/hooks/useDeviceType';
 
 import dreams from './mocked-data/sonhos';
 import * as S from './HomeSonhosSendoSonhados.styles';
@@ -9,7 +10,6 @@ import * as S from './HomeSonhosSendoSonhados.styles';
 import 'react-multi-carousel/lib/styles.css';
 
 interface Props {
-  deviceType: string;
   refProp: RefObject<HTMLDivElement>;
 }
 
@@ -31,7 +31,9 @@ const responsive = {
   },
 };
 
-const HomeSonhosSendoSonhados = ({ deviceType, refProp }: Props) => {
+const HomeSonhosSendoSonhados = ({ refProp }: Props) => {
+  const deviceType = useDeviceType();
+
   return (
     <S.Container ref={refProp}>
       <S.Title>Sonhos sendo sonhados</S.Title>
