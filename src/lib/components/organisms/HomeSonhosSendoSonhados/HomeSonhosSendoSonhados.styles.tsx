@@ -58,14 +58,44 @@ export const SonhoCardBanner = styled.div`
   justify-content: center;
 
   background: url(${({ bg }: { bg: string }) => bg});
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
 
   padding: 2rem 3rem;
 
   min-height: 14rem;
 
+  position: relative;
+
   p {
+    z-index: 10;
     text-align: center;
     font-size: ${({ theme }) => theme.font.sizes.medium};
+    font-weight: ${({ theme }) => theme.font.bold};
+
+    background-color: ${({ theme }) => theme.colors.secondary};
+
+    padding: ${({ theme }) => theme.spacing.xxxsmall};
+
+    border-radius: ${({ theme }) => theme.utils.button.border.radius};
+  }
+
+  a {
+    z-index: 10;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.darkerPrimary};
+    opacity: 0.3;
+    filter: brightness(50%);
+    z-index: 1;
   }
 `;
 

@@ -1,45 +1,42 @@
 import { RefObject } from 'react';
 
-import companies from './mocked-data/companies';
+import { AboutProps } from 'lib/types/api';
+
 import * as S from './HomeAbout.styles';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
+  data: AboutProps;
 }
 
-const HomeAbout = ({ refProp }: Props) => {
+const HomeAbout = ({ refProp, data }: Props) => {
   return (
     <S.Container ref={refProp}>
       <S.UniaoWrapper>
         <S.IllustrationWrapper>
           <S.Illustration
-            src="/img/illustration-about.svg"
+            src={data.companyAbout.image.url}
             alt="Mascote da União de Sonhos brincando com um balão"
           />
         </S.IllustrationWrapper>
         <S.Content>
-          <S.Title>União de Sonhos</S.Title>
-          <S.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit
-            amet maximus arcu. Nam maximus pharetra imperdiet. Nam varius tellus
-            vitae nisl malesuada, a vehicula ipsum mollis. Nunc sapien leo,
-            ultrices id blandit eu, condimentum ut quam. Nulla fermentum metus
-            et arcu pharetra, sit amet efficitur eros commodo. In a cursus arcu.
-            Mauris tortor dui, mattis rutrum pulvinar eu, laoreet fermentum
-            erat. Sed nisi ex, condimentum nec aliquet eu, finibus ac arcu.
-            Integer dignissim eros eu nisi commodo, vel egestas nulla convallis.
-            Cras eget leo vel tortor suscipit consequat in at enim.
-          </S.Description>
+          <S.Title>{data.companyAbout.title}</S.Title>
+          <S.Description>{data.companyAbout.description}</S.Description>
         </S.Content>
       </S.UniaoWrapper>
 
       <S.WordsLine>
-        <S.Word color="secondary">Comunidade</S.Word>
-        <S.Word>Sonhos</S.Word>
-        <S.Word color="secondary">Conexão</S.Word>
+        {data.pillar_abouts.map((pillar, index) => (
+          <S.Word
+            key={pillar.text}
+            color={!(index % 2) ? 'secondary' : 'primary'}
+          >
+            {pillar.text}
+          </S.Word>
+        ))}
       </S.WordsLine>
 
-      {companies.map((company, index) => (
+      {data.company_abouts.map((company, index) => (
         <S.CompanyWrapper
           direction={index % 2 ? 'row-reverse' : undefined}
           key={company.title}
@@ -50,7 +47,7 @@ const HomeAbout = ({ refProp }: Props) => {
           </S.Content>
 
           <S.CompanyImageWrapper>
-            <S.CompanyLogo src={company.logo} alt={company.title} />
+            <S.CompanyLogo src={company.logo[0].url} alt={company.title} />
             <S.CompanyBackground src="/img/illustration-org-bg-about.svg" />
           </S.CompanyImageWrapper>
         </S.CompanyWrapper>

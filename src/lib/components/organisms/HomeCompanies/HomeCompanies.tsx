@@ -2,39 +2,39 @@ import { RefObject } from 'react';
 
 import { AnchorButton } from 'lib/components/common/Button';
 import useDeviceType from 'lib/hooks/useDeviceType';
+import { CompaniesDreamingTogetherProps } from 'lib/types/api';
 
 import * as S from './HomeCompanies.styles';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
+  data: CompaniesDreamingTogetherProps;
 }
 
-const HomeCompanies = ({ refProp }: Props) => {
+const HomeCompanies = ({ refProp, data }: Props) => {
   const deviceType = useDeviceType();
 
   return (
     <S.Container ref={refProp}>
       <S.Wrapper>
         <S.Content>
-          <S.Title>Sonhando sonhos juntos</S.Title>
+          <S.Title>{data.title}</S.Title>
 
           <AnchorButton colorStyle="yellowFilled">VER DETALHES</AnchorButton>
 
           <S.CompaniesContainer>
-            <img src="/img/companies/bis.svg" />
-            <img src="/img/companies/coca.svg" />
-            <img src="/img/companies/converse.svg" />
-            <img src="/img/companies/puma.svg" />
-            <img src="/img/companies/gnt.svg" />
-            <img src="/img/companies/levis.svg" />
-            <img src="/img/companies/transforma.svg" />
-            <img src="/img/companies/Imagem 16.svg" />
-            <img src="/img/companies/Imagem 17.svg" />
+            {data.companies.map((company) => (
+              <img
+                src={company.image.url}
+                key={company.title}
+                alt={company.title}
+              />
+            ))}
           </S.CompaniesContainer>
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration
-            src="/img/illustration-companies.svg"
+            src={data.image.url}
             alt="Dois mascotes da União de Sonhos brincando"
           />
         </S.IllustrationWrapper>

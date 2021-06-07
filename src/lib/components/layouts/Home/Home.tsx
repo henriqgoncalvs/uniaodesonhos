@@ -34,11 +34,17 @@ const Home = ({ landingPage }: HomeProps) => {
         dreamsRef={dreamsRef}
         data={landingPage.banner}
       />
-      <HomeAbout refProp={aboutRef} />
-      <HomeSonhosSendoSonhados refProp={dreamsRef} />
-      <HomeMap refProp={mapRef} />
-      <HomeCompanies refProp={companiesRef} />
-      <Footer />
+      <HomeAbout refProp={aboutRef} data={landingPage.about} />
+      <HomeSonhosSendoSonhados
+        refProp={dreamsRef}
+        data={landingPage.dreamsBeingDreamed}
+      />
+      <HomeMap refProp={mapRef} data={landingPage.map} />
+      <HomeCompanies
+        refProp={companiesRef}
+        data={landingPage.companiesDreamingTogether}
+      />
+      <Footer data={landingPage.footer} />
     </>
   );
 };

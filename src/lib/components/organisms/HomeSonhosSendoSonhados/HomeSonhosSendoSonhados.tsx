@@ -3,14 +3,15 @@ import Carousel from 'react-multi-carousel';
 
 import { AnchorButton } from 'lib/components/common/Button';
 import useDeviceType from 'lib/hooks/useDeviceType';
+import { DreamsBeingDreamedProps } from 'lib/types/api';
 
-import dreams from './mocked-data/sonhos';
 import * as S from './HomeSonhosSendoSonhados.styles';
 
 import 'react-multi-carousel/lib/styles.css';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
+  data: DreamsBeingDreamedProps;
 }
 
 const responsive = {
@@ -31,12 +32,12 @@ const responsive = {
   },
 };
 
-const HomeSonhosSendoSonhados = ({ refProp }: Props) => {
+const HomeSonhosSendoSonhados = ({ refProp, data }: Props) => {
   const deviceType = useDeviceType();
 
   return (
     <S.Container ref={refProp}>
-      <S.Title>Sonhos sendo sonhados</S.Title>
+      <S.Title>{data.title}</S.Title>
       <Carousel
         deviceType={deviceType}
         partialVisible
@@ -51,15 +52,15 @@ const HomeSonhosSendoSonhados = ({ refProp }: Props) => {
         swipeable
         itemClass="carousel-item"
       >
-        {dreams.map((dream) => (
+        {data.dreams.map((dream) => (
           <S.SonhoCard key={dream.id}>
-            <S.SonhoCardBanner bg={dream.photo}>
+            <S.SonhoCardBanner bg={dream.image.url}>
               <p>{dream.title}</p>
               <AnchorButton
                 colorStyle="blueFilled"
                 border="squared"
                 size="small"
-                href={dream.url}
+                href={`/${dream.id}`}
               >
                 Sonhar
               </AnchorButton>
@@ -67,19 +68,19 @@ const HomeSonhosSendoSonhados = ({ refProp }: Props) => {
 
             <S.SonhoCardContent>
               <S.TagWrapper>
-                {dream.tags.map((tag) => (
-                  <S.Tag key={tag} color="lighterSecondary">
-                    {tag}
+                {dream.dream_categories.map((category) => (
+                  <S.Tag key={category.text} color="lighterSecondary">
+                    {category.text}
                   </S.Tag>
                 ))}
               </S.TagWrapper>
               <S.SonhoCardDescription>
-                {dream.description}
+                {dream.shortDescription}
               </S.SonhoCardDescription>
               <S.TagWrapper>
-                {dream.partners.map((partner) => (
-                  <S.Tag key={partner} color="lighterPrimary">
-                    {partner}
+                {dream.companies.map((company) => (
+                  <S.Tag key={company.title} color="lighterPrimary">
+                    {company.title}
                   </S.Tag>
                 ))}
               </S.TagWrapper>

@@ -4,15 +4,16 @@ import { Button } from 'lib/components/common/Button';
 import Modal from 'lib/components/common/Modal';
 import FormDream from 'lib/components/common/Modal/FormDream';
 import toast from 'lib/components/common/Toast';
+import { MapProps } from 'lib/types/api';
 
-import mapData from './mocked-data/map-data';
 import * as S from './HomeMap.styles';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
+  data: MapProps;
 }
 
-const HomeMap = ({ refProp }: Props) => {
+const HomeMap = ({ refProp, data }: Props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const notify = useCallback((type, message) => {
@@ -40,7 +41,7 @@ const HomeMap = ({ refProp }: Props) => {
   return (
     <S.Container ref={refProp}>
       <S.MapSection>
-        <S.Title>O impacto de sonhar junto</S.Title>
+        <S.Title>{data.title}</S.Title>
 
         <Button colorStyle="yellowFilled" onClick={toggleModal}>
           SONHAR
@@ -53,30 +54,20 @@ const HomeMap = ({ refProp }: Props) => {
         </Modal>
 
         <S.MapImage
-          src="/img/map.svg"
+          src={data.mapImage.url}
           alt="Um mapa com várias conexões entre diferentes continentes"
         />
       </S.MapSection>
 
       <S.DataContainer>
-        <img src="/img/tape-map.svg" />
         <S.DataContainer>
-          <S.DataWrapper>
-            <S.DataNumber>{mapData.dreamsDreamed.number}</S.DataNumber>
-            <S.DataDescription>
-              {mapData.dreamsDreamed.description}
-            </S.DataDescription>
-          </S.DataWrapper>
-          <S.DataWrapper>
-            <S.DataNumber>{mapData.impactedPeople.number}</S.DataNumber>
-            <S.DataDescription>
-              {mapData.impactedPeople.description}
-            </S.DataDescription>
-          </S.DataWrapper>
-          <S.DataWrapper>
-            <S.DataNumber>{mapData.ongs.number}</S.DataNumber>
-            <S.DataDescription>{mapData.ongs.description}</S.DataDescription>
-          </S.DataWrapper>
+          <img src="/img/tape-map.svg" />
+          {data.mapNumbers.map((mapNumber) => (
+            <S.DataWrapper key={mapNumber.description}>
+              <S.DataNumber>{mapNumber.number}</S.DataNumber>
+              <S.DataDescription>{mapNumber.description}</S.DataDescription>
+            </S.DataWrapper>
+          ))}
         </S.DataContainer>
       </S.DataContainer>
     </S.Container>

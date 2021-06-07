@@ -44,19 +44,19 @@ const HomeBanner = ({ refProp, dreamsRef, data }: Props) => {
       <S.Wrapper>
         <S.Content>
           <S.UniaoDeSonhosLogo
-            src="/img/uniaodesonhos-logo.svg"
+            src={data.logo.image.url}
             alt={data.logo.alternativeText}
           />
           <S.Title>{data.title}</S.Title>
           <S.ButtonWrapper>
             <Button colorStyle="yellowFilled" onClick={toggleModal}>
-              Sonhar
+              {data.primaryButtonText}
             </Button>
             <Button
               colorStyle="yellowLine"
               onClick={() => dreamsRef?.current?.scrollIntoView()}
             >
-              Quero apoiar um sonho
+              {data.secondaryButtonText}
             </Button>
             <Modal open={modalOpen} setOpen={setModalOpen}>
               <FormDream
@@ -68,7 +68,7 @@ const HomeBanner = ({ refProp, dreamsRef, data }: Props) => {
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration
-            src="/img/illustration-banner.svg"
+            src={data.bannerImage.url}
             alt="Uma menina brincando com o mascote da União de Sonhos"
           />
         </S.IllustrationWrapper>
