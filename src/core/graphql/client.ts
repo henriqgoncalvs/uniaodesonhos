@@ -1,5 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
 
-const client = new GraphQLClient('http://localhost:1337/graphql');
+const client = new GraphQLClient(process.env.GRAPHQL_HOST || '', {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 export default client;

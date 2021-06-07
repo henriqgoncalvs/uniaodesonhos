@@ -3,10 +3,14 @@ import { gql } from 'graphql-request';
 const GET_LANDING_PAGE = gql`
   query GET_LANDING_PAGE {
     landingPage {
-      header {
+      banner {
         logo {
-          url
+          image {
+            url
+          }
+          alternativeText
         }
+        title
       }
     }
   }

@@ -29,10 +29,6 @@ function useDeviceType() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(deviceType);
-  }, [deviceType]);
-
   return deviceType;
 }
 

@@ -3,13 +3,14 @@ import { GetStaticProps, NextPage } from 'next';
 import client from 'core/graphql/client';
 import GET_LANDING_PAGE from 'core/graphql/queries/getLandingPage';
 import HomeLayout from 'lib/components/layouts/Home';
+import { LandingPageProps } from 'lib/types/api';
 
-interface Props {
-  deviceType: string;
-}
+type Props = {
+  landingPage: LandingPageProps;
+};
 
-const Home: NextPage<Props> = () => {
-  return <HomeLayout />;
+const Home: NextPage<Props> = ({ landingPage }) => {
+  return <HomeLayout landingPage={landingPage} />;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -17,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      ...landingPage,
+      landingPage,
     },
   };
 };

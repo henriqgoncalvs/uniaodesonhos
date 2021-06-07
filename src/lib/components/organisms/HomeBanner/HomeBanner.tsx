@@ -4,15 +4,17 @@ import { Button } from 'lib/components/common/Button';
 import Modal from 'lib/components/common/Modal';
 import FormDream from 'lib/components/common/Modal/FormDream';
 import toast from 'lib/components/common/Toast';
+import { BannerProps } from 'lib/types/api';
 
 import * as S from './HomeBanner.styles';
 
 interface Props {
   refProp: RefObject<HTMLDivElement>;
   dreamsRef: RefObject<HTMLDivElement>;
+  data: BannerProps;
 }
 
-const HomeBanner = ({ refProp, dreamsRef }: Props) => {
+const HomeBanner = ({ refProp, dreamsRef, data }: Props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const notify = useCallback((type, message) => {
@@ -43,9 +45,9 @@ const HomeBanner = ({ refProp, dreamsRef }: Props) => {
         <S.Content>
           <S.UniaoDeSonhosLogo
             src="/img/uniaodesonhos-logo.svg"
-            alt="Logo escrito União de Sonhos com uma nuvem ao lado esquerdo"
+            alt={data.logo.alternativeText}
           />
-          <S.Title>Colocando sonhos no mundo.</S.Title>
+          <S.Title>{data.title}</S.Title>
           <S.ButtonWrapper>
             <Button colorStyle="yellowFilled" onClick={toggleModal}>
               Sonhar
