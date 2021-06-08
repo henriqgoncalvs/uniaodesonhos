@@ -44,7 +44,7 @@ const Home = ({ landingPage }: HomeProps) => {
         refProp={companiesRef}
         data={landingPage.companiesDreamingTogether}
       />
-      <Footer data={landingPage.footer} />
+      <Footer />
     </>
   );
 };

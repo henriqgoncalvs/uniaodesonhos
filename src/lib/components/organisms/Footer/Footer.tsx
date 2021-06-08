@@ -1,30 +1,24 @@
-import { FooterProps } from 'lib/types/api';
-
 import * as S from './Footer.styles';
 
-type Props = {
-  data: FooterProps;
-};
-
-const Footer = ({ data }: Props) => {
+const Footer = () => {
   return (
     <S.Container>
       <S.Wrapper>
         <S.IllustrationWrapper>
           <S.Illustration
-            src={data.image.url}
+            src="/img/illustration-footer.svg"
             alt="O mascote da União de Sonhos ao lado de uma flor amarela"
           />
         </S.IllustrationWrapper>
 
         <S.UniaoLogoWrapper>
           <S.UniaoLogo
-            src={data.logo.image.url}
-            alt={data.logo.alternativeText}
+            src="/img/uniaodesonhos-logo-footer.svg"
+            alt="Nuvem azul com o texto a direita escrito União de Sonhos"
           />
         </S.UniaoLogoWrapper>
 
-        <S.FooterText>{data.text}</S.FooterText>
+        <S.FooterText>Colocando sonhos no mundo.</S.FooterText>
       </S.Wrapper>
     </S.Container>
   );

@@ -4,6 +4,7 @@ import client from 'core/graphql/client';
 import { GET_DREAM } from 'core/graphql/queries/getDream';
 import { GET_DREAMS } from 'core/graphql/queries/getDreams';
 import Dream from 'lib/components/organisms/Dream';
+import Footer from 'lib/components/organisms/Footer';
 import FullNavbar from 'lib/components/organisms/FullNavbar';
 import { DreamProps } from 'lib/types/api';
 
@@ -12,6 +13,7 @@ function Sonho({ dream }: { dream: DreamProps }) {
     <>
       <FullNavbar />
       <Dream dream={dream} />
+      <Footer />
     </>
   );
 }

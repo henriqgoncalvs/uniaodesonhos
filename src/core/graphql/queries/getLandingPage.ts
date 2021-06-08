@@ -88,21 +88,6 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
-  fragment footer on LandingPage {
-    footer {
-      text
-      logo {
-        alternativeText
-        image {
-          url
-        }
-      }
-      image {
-        url
-      }
-    }
-  }
-
   query GET_LANDING_PAGE {
     landingPage {
       ...banner
@@ -110,7 +95,6 @@ const GET_LANDING_PAGE = gql`
       ...dreamsBeingDreamed
       ...map
       ...companiesDreamingTogether
-      ...footer
     }
   }
 `;

@@ -91,26 +91,12 @@ export type CompaniesDreamingTogetherProps = {
   };
 };
 
-export type FooterProps = {
-  text: string;
-  logo: {
-    alternativeText: string;
-    image: {
-      url: string;
-    };
-  };
-  image: {
-    url: string;
-  };
-};
-
 export type LandingPageProps = {
   banner: BannerProps;
   about: AboutProps;
   dreamsBeingDreamed: DreamsBeingDreamedProps;
   map: MapProps;
   companiesDreamingTogether: CompaniesDreamingTogetherProps;
-  footer: FooterProps;
 };
 
 export type DreamProps = {

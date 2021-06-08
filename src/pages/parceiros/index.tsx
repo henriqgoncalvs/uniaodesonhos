@@ -3,6 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import client from 'core/graphql/client';
 import { GET_COMPANIES } from 'core/graphql/queries/getCompanies';
 import CompaniesLayout from 'lib/components/layouts/CompaniesLayout';
+import Footer from 'lib/components/organisms/Footer';
 import FullNavbar from 'lib/components/organisms/FullNavbar';
 import { CompaniesProps } from 'lib/types/api';
 
@@ -15,6 +16,7 @@ const Parceiros: NextPage<Props> = ({ companies }) => {
     <>
       <FullNavbar />
       <CompaniesLayout companies={companies} />
+      <Footer />
     </>
   );
 };

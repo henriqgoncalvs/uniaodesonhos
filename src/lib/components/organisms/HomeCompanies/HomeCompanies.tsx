@@ -20,7 +20,9 @@ const HomeCompanies = ({ refProp, data }: Props) => {
         <S.Content>
           <S.Title>{data.title}</S.Title>
 
-          <AnchorButton colorStyle="yellowFilled">VER DETALHES</AnchorButton>
+          <AnchorButton colorStyle="yellowFilled" href="/parceiros">
+            VER DETALHES
+          </AnchorButton>
 
           <S.CompaniesContainer>
             {data.companies.map((company) => (
