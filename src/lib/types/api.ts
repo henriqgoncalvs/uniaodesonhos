@@ -106,6 +106,12 @@ export type DreamProps = {
   image: {
     url: string;
   };
+  donation: [
+    {
+      url: string;
+      value: number;
+    },
+  ];
   fullDescription: string;
   peopleDreaming: string;
   startDate: string;

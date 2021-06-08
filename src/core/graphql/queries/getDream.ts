@@ -9,6 +9,10 @@ export const GET_DREAM = gql`
       image {
         url
       }
+      donation {
+        url
+        value
+      }
       fullDescription
       peopleDreaming
       startDate

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BiDollar } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaTwitter } from 'react-icons/fa';
@@ -6,6 +7,8 @@ import dayjs from 'dayjs';
 import { Line } from 'rc-progress';
 
 import { AnchorButton, Button } from 'lib/components/common/Button';
+import Modal from 'lib/components/common/Modal';
+import Contribution from 'lib/components/common/Modal/Contribution';
 import toast from 'lib/components/common/Toast';
 import { DreamProps } from 'lib/types/api';
 import copyToClipboard from 'lib/utils/copyToClipboard';
@@ -13,6 +16,10 @@ import copyToClipboard from 'lib/utils/copyToClipboard';
 import * as S from './Dream.styles';
 
 function Dream({ dream }: { dream: DreamProps }) {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => setModalOpen(!modalOpen);
+
   return (
     <S.Container>
       <S.Title>{dream.title}</S.Title>
@@ -70,7 +77,9 @@ function Dream({ dream }: { dream: DreamProps }) {
           </S.DreamData>
 
           <S.ButtonsWrapper>
-            <Button icon={<BiDollar />}>Contribuir</Button>
+            <Button icon={<BiDollar />} onClick={toggleModal}>
+              Contribuir
+            </Button>
             <AnchorButton
               href={`https://api.whatsapp.com/send?phone=5587988254611&text=${encodeURI(
                 `Olá, gostaria de me tornar voluntário para o projeto "${dream.title}`,
@@ -81,6 +90,10 @@ function Dream({ dream }: { dream: DreamProps }) {
               Conectar voluntários
             </AnchorButton>
           </S.ButtonsWrapper>
+
+          <Modal open={modalOpen} setOpen={setModalOpen}>
+            <Contribution donationArray={dream.donation} />
+          </Modal>
 
           <S.SocialWrapper>
             <S.SocialTitle>
