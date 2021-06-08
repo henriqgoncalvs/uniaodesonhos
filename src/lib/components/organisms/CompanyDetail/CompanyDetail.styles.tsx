@@ -9,13 +9,16 @@ export const Wrapper = styled.section`
 `;
 
 export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
   margin-bottom: 2rem;
 
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   h3 {
+    display: block;
     font-weight: ${({ theme }) => theme.font.heavy};
     font-size: ${({ theme }) => theme.font.sizes.xxlarge};
     font-family: ${({ theme }) => theme.font.family.pilat};
@@ -28,7 +31,7 @@ export const Header = styled.div`
   img {
     width: min(100%, 15rem);
 
-    margin: 0 6rem;
+    margin: 0 2rem;
 
     ${media.lessThan('small')`
       margin: 3rem auto;
@@ -70,7 +73,7 @@ export const PeopleDreaming = styled.div`
 export const Description = styled.div`
   width: 100%;
 
-  margin-bottom: 2rem;
+  margin-bottom: auto;
 
   ${media.lessThan('large')`
     text-align: center;
@@ -80,10 +83,12 @@ export const Description = styled.div`
 
 export const DreamsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
 
   width: 100%;
+
+  margin-top: 2rem;
 
   ${media.lessThan('small')`
     grid-template-columns: 1fr;

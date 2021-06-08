@@ -1,12 +1,22 @@
 import { gql } from 'graphql-request';
 
 export const GET_DREAM = gql`
-  query GET_DREAMS($id: ID!) {
+  query GET_DREAM($id: ID!) {
     dream(id: $id) {
+      id
       title
       shortDescription
       image {
         url
+      }
+      fullDescription
+      peopleDreaming
+      startDate
+      endDate
+      totalValue
+      collectedValue
+      companies {
+        title
       }
     }
   }

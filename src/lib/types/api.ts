@@ -114,9 +114,31 @@ export type LandingPageProps = {
 };
 
 export type DreamProps = {
+  id: string;
   title: string;
   shortDescription: string;
   image: {
     url: string;
   };
+  fullDescription: string;
+  peopleDreaming: string;
+  startDate: string;
+  endDate: string;
+  totalValue: number;
+  collectedValue: number;
+  companies: [
+    {
+      title: string;
+    },
+  ];
+};
+
+export type CompaniesProps = {
+  id: string;
+  title: string;
+  description: string;
+  image: {
+    url: string;
+  };
+  dreams: Pick<DreamProps, 'id' | 'title' | 'image'>[];
 };

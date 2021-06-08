@@ -1,23 +1,30 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
+import client from 'core/graphql/client';
+import { GET_COMPANIES } from 'core/graphql/queries/getCompanies';
 import CompaniesLayout from 'lib/components/layouts/CompaniesLayout';
 import FullNavbar from 'lib/components/organisms/FullNavbar';
+import { CompaniesProps } from 'lib/types/api';
 
-const Parceiros = () => {
+type Props = {
+  companies: CompaniesProps[];
+};
+
+const Parceiros: NextPage<Props> = ({ companies }) => {
   return (
     <>
       <FullNavbar />
-      <CompaniesLayout />
+      <CompaniesLayout companies={companies} />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const { landingPage } = await client.request(GET_LANDING_PAGE);
+  const { companies } = await client.request(GET_COMPANIES);
 
   return {
     props: {
-      // landingPage,
+      companies,
     },
   };
 };

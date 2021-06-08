@@ -1,12 +1,14 @@
-import { AiFillInstagram } from 'react-icons/ai';
 import { BiDollar } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaTwitter } from 'react-icons/fa';
 import { MdLink } from 'react-icons/md';
+import dayjs from 'dayjs';
 import { Line } from 'rc-progress';
 
-import { Button } from 'lib/components/common/Button';
+import { AnchorButton, Button } from 'lib/components/common/Button';
+import toast from 'lib/components/common/Toast';
 import { DreamProps } from 'lib/types/api';
+import copyToClipboard from 'lib/utils/copyToClipboard';
 
 import * as S from './Dream.styles';
 
@@ -21,41 +23,35 @@ function Dream({ dream }: { dream: DreamProps }) {
         </S.PresentationWrapper>
 
         <S.Content>
-          <S.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit
-            amet maximus arcu. Nam maximus pharetra imperdiet. Nam varius tellus
-            vitae nisl malesuada, a vehicula ipsum mollis. Nunc sapien leo,
-            ultrices id blandit eu, condimentum ut quam. Nulla fermentum metus
-            et arcu pharetra, sit amet efficitur eros commodo. In a cursus arcu.
-            Mauris tortor dui, mattis rutrum pulvinar eu, laoreet fermentum
-            erat. Sed nisi ex, condimentum nec aliquet eu, finibus ac arcu.
-            Integer dignissim eros eu nisi commodo, vel egestas nulla convallis.
-            Cras eget leo vel tortor suscipit consequat in at enim.
-          </S.Description>
+          <S.Description>{dream.fullDescription}</S.Description>
 
           <S.DreamData>
             <S.PeopleDreaming>
-              <p>876</p>
+              <p>{dream.peopleDreaming}</p>
               <p>Pessoas sonhando em conjunto</p>
             </S.PeopleDreaming>
 
             <S.DreamDate>
               <S.DateWrapper>
-                <p>13/01/2020</p>
+                <p>{dayjs(dream.startDate).format('DD/MM/YYYY')}</p>
                 <p>Início do sonho</p>
               </S.DateWrapper>
               <S.DateWrapper>
-                <p>13/01/2020</p>
+                <p>{dayjs(dream.endDate).format('DD/MM/YYYY')}</p>
                 <p>Fim do sonho</p>
               </S.DateWrapper>
             </S.DreamDate>
 
             <S.TotalValue>
               <p>Valor arrecadado</p>
-              <Line percent={10} strokeWidth={4} strokeColor="#66D3E6" />
+              <Line
+                percent={(dream.collectedValue * 100) / dream.totalValue}
+                strokeWidth={4}
+                strokeColor="#66D3E6"
+              />
               <S.TotalValueBounds>
-                <p>R$ 200,00</p>
-                <p>R$ 1500,00</p>
+                <p>R$ {dream.collectedValue}</p>
+                <p>R$ {dream.totalValue}</p>
               </S.TotalValueBounds>
             </S.TotalValue>
 
@@ -64,8 +60,11 @@ function Dream({ dream }: { dream: DreamProps }) {
                 Parceiros que apoiam esse sonho
               </S.CompaniesTitle>
               <S.CompaniesTagWrapper>
-                <S.CompaniesTag>Transforma Recife</S.CompaniesTag>
-                <S.CompaniesTag>Samaritanos</S.CompaniesTag>
+                {dream.companies?.map((company) => (
+                  <S.CompaniesTag key={company.title}>
+                    {company.title}
+                  </S.CompaniesTag>
+                ))}
               </S.CompaniesTagWrapper>
             </S.Companies>
           </S.DreamData>
@@ -83,27 +82,31 @@ function Dream({ dream }: { dream: DreamProps }) {
             </S.SocialTitle>
 
             <S.SocialButtonsWrapper>
-              <Button
+              <AnchorButton
                 colorStyle="twitter"
                 border="squared"
                 icon={<FaTwitter fontSize={32} />}
                 size="small"
+                href={`https://twitter.com/intent/tweet?text=${encodeURI(
+                  `Encontrei um sonho maravilhoso na União de Sonhos, ${dream.title}. Venha ajudar comigo: https://uniaodesonhos.vercel.app/sonho/${dream.id}`,
+                )}`}
               >
                 Compartilhar no Twitter
-              </Button>
-              <Button
-                colorStyle="instagram"
-                border="squared"
-                icon={<AiFillInstagram fontSize={32} />}
-                size="small"
-              >
-                Compartilhar no Instagram
-              </Button>
+              </AnchorButton>
               <Button
                 colorStyle="blueFilled"
                 border="squared"
                 icon={<MdLink fontSize={32} />}
                 size="small"
+                onClick={() => {
+                  copyToClipboard(
+                    `https://uniaodesonhos.vercel.app/sonho/${dream.id}`,
+                  );
+                  toast({
+                    type: 'success',
+                    message: 'Link copiado para a área de transferência',
+                  });
+                }}
               >
                 Copiar link
               </Button>

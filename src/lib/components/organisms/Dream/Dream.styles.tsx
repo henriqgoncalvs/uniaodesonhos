@@ -282,14 +282,16 @@ export const SocialButtonsWrapper = styled.div`
 
   width: min(100%, 50rem);
 
-  button {
-    flex: 0.3;
+  button,
+  a {
+    flex: 0.45;
   }
 
   ${media.lessThan('medium')`
     flex-direction: column;
 
-    button {
+    button, a {
+      flex: 1;
       width: 100%;
       margin-bottom: 2rem;
     }

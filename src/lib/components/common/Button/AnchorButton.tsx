@@ -5,6 +5,7 @@ function AnchorButton({
   border = 'rounded',
   size = 'medium',
   children,
+  icon,
   ...rest
 }: S.AnchorProps) {
   return (
@@ -14,6 +15,7 @@ function AnchorButton({
       size={size}
       {...rest}
     >
+      {icon}
       {children}
     </S.AnchorButton>
   );
