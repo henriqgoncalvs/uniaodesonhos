@@ -112,3 +112,11 @@ export type LandingPageProps = {
   companiesDreamingTogether: CompaniesDreamingTogetherProps;
   footer: FooterProps;
 };
+
+export type DreamProps = {
+  title: string;
+  shortDescription: string;
+  image: {
+    url: string;
+  };
+};
