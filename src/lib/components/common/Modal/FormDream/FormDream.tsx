@@ -1,18 +1,16 @@
-import { FormEvent } from 'react';
+import { FormEvent, useCallback } from 'react';
 
 import { Button } from 'lib/components/common/Button';
-import { FileUploader } from 'lib/components/common/Inputs';
+import toast from 'lib/components/common/Toast';
 
 import * as S from './FormDream.styles';
 
-const WannaDream = ({
-  handleFormSuccess,
-  handleFormError,
-}: {
-  handleFormSuccess: () => void;
-  handleFormError: () => void;
-}) => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
+  const notify = useCallback((type, message) => {
+    toast({ type, message });
+  }, []);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const target = e.target as typeof e.target & {
@@ -22,7 +20,6 @@ const WannaDream = ({
       howFind: { value: string };
       dreamerLevel: { value: number };
       motivations: { value: string };
-      file: { value: File };
     };
 
     const nome = target.nome.value;
@@ -31,7 +28,6 @@ const WannaDream = ({
     const howFind = target.howFind.value;
     const dreamerLevel = target.dreamerLevel.value;
     const motivations = target.motivations.value;
-    const file = target.file.value;
 
     const values = {
       nome,
@@ -40,13 +36,27 @@ const WannaDream = ({
       howFind,
       dreamerLevel,
       motivations,
-      file,
     };
 
-    if (!values.nome) handleFormError();
-    else handleFormSuccess();
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(values),
+      });
 
-    console.log(values);
+      notify(
+        'success',
+        'Parabéns, seu sonho foi enviado com sucesso! Aguarde que entraremos em contato.',
+      );
+    } catch (error) {
+      notify(
+        'error',
+        'Ooops, ocorreu algum erro :( Tente novamento ou entre em contato.',
+      );
+    }
+
+    toggleModal();
   };
 
   return (
@@ -77,7 +87,7 @@ const WannaDream = ({
               rows={5}
               placeholder="Suas motivacões"
             />
-            <FileUploader />
+            {/* <FileUploader /> */}
             <Button>Sonhar</Button>
           </div>
         </form>

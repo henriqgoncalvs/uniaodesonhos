@@ -71,9 +71,15 @@ function Dream({ dream }: { dream: DreamProps }) {
 
           <S.ButtonsWrapper>
             <Button icon={<BiDollar />}>Contribuir</Button>
-            <Button icon={<BsPeopleFill />} colorStyle="blueFilled">
+            <AnchorButton
+              href={`https://api.whatsapp.com/send?phone=5587988254611&text=${encodeURI(
+                `Olá, gostaria de me tornar voluntário para o projeto "${dream.title}`,
+              )}"`}
+              icon={<BsPeopleFill />}
+              colorStyle="blueFilled"
+            >
               Conectar voluntários
-            </Button>
+            </AnchorButton>
           </S.ButtonsWrapper>
 
           <S.SocialWrapper>

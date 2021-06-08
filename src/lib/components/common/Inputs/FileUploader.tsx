@@ -9,7 +9,7 @@ interface Event<T = EventTarget> {
 }
 
 interface Props {
-  handleFile?: (fileUploaded?: File) => unknown;
+  handleFile?: (fileUploaded: FormData) => unknown;
 }
 
 const Button = styled.div`
@@ -62,8 +62,16 @@ const FileUploader = ({ handleFile }: Props) => {
 
   const handleChange = (event: Event<HTMLInputElement>) => {
     const fileUploaded = event.target.files?.[0];
-    setFileName(fileUploaded?.name);
-    handleFile?.(fileUploaded);
+
+    if (fileUploaded) {
+      const blob = new Blob([fileUploaded], { type: fileUploaded.type });
+      const formData = new FormData(); // Currently empty
+      formData.append('file', blob);
+
+      setFileName(fileUploaded?.name);
+      return handleFile?.(formData);
+    }
+    return;
   };
 
   return (
