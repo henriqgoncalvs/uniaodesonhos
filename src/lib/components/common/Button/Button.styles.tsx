@@ -1,9 +1,17 @@
+import { ReactNode } from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
 interface StyledButtonProps {
-  colorStyle?: 'yellowFilled' | 'yellowLine' | 'blueFilled' | 'blueLine';
+  colorStyle?:
+    | 'yellowFilled'
+    | 'yellowLine'
+    | 'blueFilled'
+    | 'blueLine'
+    | 'twitter'
+    | 'instagram';
   border?: 'squared' | 'rounded';
   size?: 'small' | 'medium';
+  icon?: ReactNode;
 }
 
 interface StyledButtonPropsWithTheme extends StyledButtonProps {
@@ -35,6 +43,16 @@ const colorModifiers = {
   blueLine: (theme: DefaultTheme) => `
     border: 2px solid ${theme.colors.primary};
     color: ${theme.colors.black};
+  `,
+  twitter: (theme: DefaultTheme) => `
+    background-color: ${theme.colors.twitter};
+    border: none;
+    color: ${theme.colors.white};
+  `,
+  instagram: (theme: DefaultTheme) => `
+    background-color: ${theme.colors.instagram};
+    border: none;
+    color: ${theme.colors.white};
   `,
 };
 
@@ -75,6 +93,13 @@ const commonStyles = ({
 
   transition: all 0.2s ease-in-out;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: 1rem;
+  }
 
   &:hover {
     filter: brightness(110%);

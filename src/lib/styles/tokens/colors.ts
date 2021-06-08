@@ -15,4 +15,6 @@ export default {
   error: '#D94848',
   info: '#0CAEAE',
   input: '#94e1ee',
+  twitter: '#54acee',
+  instagram: '#f8535a',
 };

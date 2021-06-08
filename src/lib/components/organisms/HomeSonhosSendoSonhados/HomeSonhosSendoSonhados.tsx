@@ -60,7 +60,7 @@ const HomeSonhosSendoSonhados = ({ refProp, data }: Props) => {
                 colorStyle="blueFilled"
                 border="squared"
                 size="small"
-                href={`/${dream.id}`}
+                href={`/sonho/${dream.id}`}
               >
                 Sonhar
               </AnchorButton>

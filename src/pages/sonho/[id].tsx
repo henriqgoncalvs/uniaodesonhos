@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import client from 'core/graphql/client';
 import { GET_DREAM } from 'core/graphql/queries/getDream';
 import { GET_DREAMS } from 'core/graphql/queries/getDreams';
+import Dream from 'lib/components/organisms/Dream';
 import FullNavbar from 'lib/components/organisms/FullNavbar';
 import { DreamProps } from 'lib/types/api';
 
@@ -10,7 +11,7 @@ function Sonho({ dream }: { dream: DreamProps }) {
   return (
     <>
       <FullNavbar />
-      <div>{dream.title}</div>
+      <Dream dream={dream} />
     </>
   );
 }

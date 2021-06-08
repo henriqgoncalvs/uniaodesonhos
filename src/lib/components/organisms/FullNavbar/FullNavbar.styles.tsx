@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   width: 100vw;
@@ -23,6 +24,10 @@ export const Content = styled.div`
   justify-content: space-between;
 
   z-index: 100;
+
+  ${media.lessThan('small')`
+    align-items: flex-start;
+  `}
 `;
 
 export const Logo = styled.img`
@@ -36,6 +41,10 @@ export const NavLinks = styled.div`
   justify-content: space-between;
 
   flex: 0.3;
+
+  ${media.lessThan('small')`
+    flex-direction: column;
+  `}
 `;
 
 export const NavLink = styled.a`
@@ -45,6 +54,8 @@ export const NavLink = styled.a`
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.medium};
     font-style: italic;
+
+    margin-right: 3rem;
 
     text-decoration: none;
 
@@ -74,6 +85,11 @@ export const NavLink = styled.a`
       color: ${theme.colors.black};
     }
   `};
+
+  ${media.lessThan('small')`
+    margin-bottom: 1rem;
+    margin-right: 0rem;
+  `}
 `;
 
 export const Background = styled.div`
