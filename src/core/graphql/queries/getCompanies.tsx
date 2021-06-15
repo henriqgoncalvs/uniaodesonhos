@@ -12,7 +12,7 @@ export const GET_COMPANIES = gql`
       dreams {
         id
         title
-        image {
+        thumbnail {
           url
         }
       }

@@ -112,7 +112,7 @@ export const SonhoCardContent = styled.div`
 
 export const SonhoCardDescription = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const TagWrapper = styled.div`

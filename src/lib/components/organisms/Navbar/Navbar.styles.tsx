@@ -49,6 +49,7 @@ export const OpenButton = styled.div<NavbarProps>`
 
   top: 5rem;
   left: 5rem;
+  z-index: 100000000000;
 
   display: ${({ open }) => (open ? 'none' : 'initial')};
 

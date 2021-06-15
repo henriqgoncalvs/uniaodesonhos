@@ -28,6 +28,7 @@ export const getStaticProps: GetStaticProps<DreamProps> = async (
 
   return {
     props: dream,
+    revalidate: 300,
   };
 };
 

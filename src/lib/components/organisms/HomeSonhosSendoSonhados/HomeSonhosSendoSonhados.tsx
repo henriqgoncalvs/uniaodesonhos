@@ -54,7 +54,7 @@ const HomeSonhosSendoSonhados = ({ refProp, data }: Props) => {
       >
         {data.dreams.map((dream) => (
           <S.SonhoCard key={dream.id}>
-            <S.SonhoCardBanner bg={dream.image.url}>
+            <S.SonhoCardBanner bg={dream.thumbnail.url}>
               <p>{dream.title}</p>
               <AnchorButton
                 colorStyle="blueFilled"

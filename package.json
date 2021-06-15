@@ -28,6 +28,7 @@
     "react-icons": "^4.2.0",
     "react-is": "^17.0.2",
     "react-multi-carousel": "^2.6.2",
+    "react-player": "^2.9.0",
     "react-toastify": "^7.0.4",
     "styled-components": "^5.2.3",
     "styled-media-query": "^2.1.2",

@@ -93,6 +93,7 @@ export const CompaniesContainer = styled.div`
     width: 100%;
     max-width: 15rem;
     min-width: 8rem;
+    object-fit: contain;
 
     ${media.lessThan('large')`
       margin: 0 auto;

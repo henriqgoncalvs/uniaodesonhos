@@ -6,7 +6,10 @@ export const GET_DREAM = gql`
       id
       title
       shortDescription
-      image {
+      thumbnail {
+        url
+      }
+      presentationMedia {
         url
       }
       donation {

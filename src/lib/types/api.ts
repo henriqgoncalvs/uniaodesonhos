@@ -44,7 +44,7 @@ export type DreamsBeingDreamedProps = {
   dreams: [
     {
       id: number;
-      image: {
+      thumbnail: {
         url: string;
       };
       title: string;
@@ -78,12 +78,17 @@ export type MapProps = {
 
 export type CompaniesDreamingTogetherProps = {
   title: string;
-  companies: [
+  companyCategory: [
     {
       title: string;
-      image: {
-        url: string;
-      };
+      companies: [
+        {
+          title: string;
+          image: {
+            url: string;
+          };
+        },
+      ];
     },
   ];
   image: {
@@ -103,7 +108,10 @@ export type DreamProps = {
   id: string;
   title: string;
   shortDescription: string;
-  image: {
+  thumbnail: {
+    url: string;
+  };
+  presentationMedia: {
     url: string;
   };
   donation: [
@@ -132,5 +140,5 @@ export type CompaniesProps = {
   image: {
     url: string;
   };
-  dreams: Pick<DreamProps, 'id' | 'title' | 'image'>[];
+  dreams: Pick<DreamProps, 'id' | 'title' | 'thumbnail'>[];
 };

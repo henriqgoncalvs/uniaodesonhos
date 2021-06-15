@@ -103,7 +103,7 @@ export const DreamCardBanner = styled.div`
   justify-content: center;
 
   background: url(${({ bg }: { bg: string }) => bg});
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 

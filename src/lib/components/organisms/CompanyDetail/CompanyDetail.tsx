@@ -25,7 +25,7 @@ function CompanyDetail({ company }: Props) {
 
       <S.DreamsWrapper>
         {company.dreams.map((dream) => (
-          <S.DreamCardBanner key={dream.id} bg={dream.image.url}>
+          <S.DreamCardBanner key={dream.id} bg={dream.thumbnail.url}>
             <p>{dream.title}</p>
             <AnchorButton
               colorStyle="blueFilled"

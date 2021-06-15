@@ -24,15 +24,21 @@ const HomeCompanies = ({ refProp, data }: Props) => {
             VER DETALHES
           </AnchorButton>
 
-          <S.CompaniesContainer>
-            {data.companies.map((company) => (
-              <img
-                src={company.image.url}
-                key={company.title}
-                alt={company.title}
-              />
-            ))}
-          </S.CompaniesContainer>
+          {data.companyCategory?.map((category) => (
+            <div key={category.title}>
+              <h3>{category.title}</h3>
+
+              <S.CompaniesContainer>
+                {category.companies.map((company) => (
+                  <img
+                    src={company.image?.url}
+                    key={company.title}
+                    alt={company.title}
+                  />
+                ))}
+              </S.CompaniesContainer>
+            </div>
+          ))}
         </S.Content>
         <S.IllustrationWrapper>
           <S.Illustration

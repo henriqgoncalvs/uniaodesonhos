@@ -45,7 +45,7 @@ const GET_LANDING_PAGE = gql`
       title
       dreams {
         id
-        image {
+        thumbnail {
           url
         }
         title
@@ -76,10 +76,13 @@ const GET_LANDING_PAGE = gql`
   fragment companiesDreamingTogether on LandingPage {
     companiesDreamingTogether {
       title
-      companies {
+      companyCategory {
         title
-        image {
-          url
+        companies {
+          title
+          image {
+            url
+          }
         }
       }
       image {

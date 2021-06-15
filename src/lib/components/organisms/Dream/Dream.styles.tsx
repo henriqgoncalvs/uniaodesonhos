@@ -186,7 +186,7 @@ export const DateWrapper = styled.div`
 
   p:first-child {
     font-weight: ${({ theme }) => theme.font.bold};
-    font-size: ${({ theme }) => theme.font.sizes.medium};
+    font-size: ${({ theme }) => theme.font.sizes.small};
 
     margin: auto;
   }

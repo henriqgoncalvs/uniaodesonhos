@@ -3,6 +3,7 @@ import { BiDollar } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaTwitter } from 'react-icons/fa';
 import { MdLink } from 'react-icons/md';
+import ReactPlayer from 'react-player';
 import dayjs from 'dayjs';
 import { Line } from 'rc-progress';
 
@@ -19,14 +20,14 @@ function Dream({ dream }: { dream: DreamProps }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => setModalOpen(!modalOpen);
-
   return (
     <S.Container>
       <S.Title>{dream.title}</S.Title>
 
       <S.MainWrapper>
         <S.PresentationWrapper>
-          <S.DreamImage src={dream.image.url} />
+          <ReactPlayer url={dream.presentationMedia.url} controls />
+          {/* <S.DreamImage src={dream.thumbnail.url} /> */}
         </S.PresentationWrapper>
 
         <S.Content>
