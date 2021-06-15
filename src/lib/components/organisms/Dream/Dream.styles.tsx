@@ -59,6 +59,7 @@ export const MainWrapper = styled.main`
 export const PresentationWrapper = styled.section`
   flex: 1;
   display: flex;
+  max-width: 90vw;
   flex-direction: column;
   align-items: flex-start;
 
@@ -87,6 +88,7 @@ export const Content = styled.section`
 
   ${media.lessThan('large')`
     align-items: center;
+    margin-top: 4rem;
   `}
 `;
 
@@ -289,10 +291,11 @@ export const SocialButtonsWrapper = styled.div`
 
   ${media.lessThan('medium')`
     flex-direction: column;
+    align-items: stretch;
 
     button, a {
-      flex: 1;
-      width: 100%;
+      /* flex: 1; */
+      max-width: 100%;
       margin-bottom: 2rem;
     }
   `}

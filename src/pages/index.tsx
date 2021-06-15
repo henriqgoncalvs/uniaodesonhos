@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       landingPage,
     },
-    revalidate: 300,
+    revalidate: 10,
   };
 };
 

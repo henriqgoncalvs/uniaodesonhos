@@ -26,7 +26,12 @@ function Dream({ dream }: { dream: DreamProps }) {
 
       <S.MainWrapper>
         <S.PresentationWrapper>
-          <ReactPlayer url={dream.presentationMedia.url} controls />
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url={dream.presentationMedia.url}
+            controls
+          />
           {/* <S.DreamImage src={dream.thumbnail.url} /> */}
         </S.PresentationWrapper>
 
@@ -68,11 +73,17 @@ function Dream({ dream }: { dream: DreamProps }) {
                 Parceiros que apoiam esse sonho
               </S.CompaniesTitle>
               <S.CompaniesTagWrapper>
-                {dream.companies?.map((company) => (
-                  <S.CompaniesTag key={company.title}>
-                    {company.title}
+                {dream.companies.length ? (
+                  dream.companies?.map((company) => (
+                    <S.CompaniesTag key={company.title}>
+                      {company.title}
+                    </S.CompaniesTag>
+                  ))
+                ) : (
+                  <S.CompaniesTag>
+                    Nenhuma companhia por enquanto
                   </S.CompaniesTag>
-                ))}
+                )}
               </S.CompaniesTagWrapper>
             </S.Companies>
           </S.DreamData>
