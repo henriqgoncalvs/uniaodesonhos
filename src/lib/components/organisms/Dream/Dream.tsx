@@ -75,8 +75,8 @@ function Dream({ dream }: { dream: DreamProps }) {
               <S.CompaniesTagWrapper>
                 {dream.companies.length ? (
                   dream.companies?.map((company) => (
-                    <S.CompaniesTag key={company.title}>
-                      {company.title}
+                    <S.CompaniesTag key={company?.title}>
+                      {company?.title}
                     </S.CompaniesTag>
                   ))
                 ) : (
