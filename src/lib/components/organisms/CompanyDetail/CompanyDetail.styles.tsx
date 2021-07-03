@@ -79,6 +79,11 @@ export const Description = styled.div`
     text-align: center;
     margin-bottom: 4rem;
   `}
+
+  a {
+    max-width: 20rem;
+    margin-top: 3rem;
+  }
 `;
 
 export const DreamsWrapper = styled.div`

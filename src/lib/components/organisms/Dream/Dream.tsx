@@ -3,6 +3,7 @@ import { BiDollar } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaTwitter } from 'react-icons/fa';
 import { MdLink } from 'react-icons/md';
+import NumberFormat from 'react-number-format';
 import ReactPlayer from 'react-player';
 import dayjs from 'dayjs';
 import { Line } from 'rc-progress';
@@ -34,9 +35,10 @@ function Dream({ dream }: { dream: DreamProps }) {
           />
           {/* <S.DreamImage src={dream.thumbnail.url} /> */}
         </S.PresentationWrapper>
-
         <S.Content>
-          <S.Description>{dream.fullDescription}</S.Description>
+          <S.Description
+            dangerouslySetInnerHTML={{ __html: dream.fullDescription }}
+          />
 
           <S.DreamData>
             <S.PeopleDreaming>
@@ -63,8 +65,20 @@ function Dream({ dream }: { dream: DreamProps }) {
                 strokeColor="#66D3E6"
               />
               <S.TotalValueBounds>
-                <p>R$ {dream.collectedValue}</p>
-                <p>R$ {dream.totalValue}</p>
+                <NumberFormat
+                  value={dream.collectedValue || '0'}
+                  displayType={'text'}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  prefix={'$'}
+                />
+                <NumberFormat
+                  value={dream.totalValue}
+                  displayType={'text'}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  prefix={'$'}
+                />
               </S.TotalValueBounds>
             </S.TotalValue>
 

@@ -7,6 +7,7 @@ import Dream from 'lib/components/organisms/Dream';
 import Footer from 'lib/components/organisms/Footer';
 import FullNavbar from 'lib/components/organisms/FullNavbar';
 import { DreamProps } from 'lib/types/api';
+import markdownToHTML from 'lib/utils/markdownToHTML';
 
 function Sonho({ dream }: { dream: DreamProps }) {
   return (
@@ -18,16 +19,23 @@ function Sonho({ dream }: { dream: DreamProps }) {
   );
 }
 
-export const getStaticProps: GetStaticProps<DreamProps> = async (
+export const getStaticProps: GetStaticProps<{ dream: DreamProps }> = async (
   ctx: GetStaticPropsContext,
 ) => {
   const id = ctx.params?.id;
-  const dream = await client.request(GET_DREAM, {
+  const { dream } = await client.request(GET_DREAM, {
     id: id,
   });
 
+  const formatedDream = {
+    ...dream,
+    fullDescription: await markdownToHTML(dream.fullDescription),
+  };
+
   return {
-    props: dream,
+    props: {
+      dream: formatedDream,
+    },
     revalidate: 10,
   };
 };
@@ -42,7 +50,7 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   }));
 
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths,
   };
 };

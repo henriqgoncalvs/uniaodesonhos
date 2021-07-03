@@ -148,7 +148,8 @@ export const TotalValue = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  p {
+  p,
+  span {
     font-weight: ${({ theme }) => theme.font.heavy};
     font-size: ${({ theme }) => theme.font.sizes.medium};
     font-family: ${({ theme }) => theme.font.family.pilat};
@@ -168,7 +169,7 @@ export const TotalValueBounds = styled.div`
 
   width: 100%;
 
-  p {
+  span {
     margin-top: 1rem;
     font-size: ${({ theme }) => theme.font.sizes.xxsmall};
   }

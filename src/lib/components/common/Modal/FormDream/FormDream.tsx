@@ -1,4 +1,5 @@
 import { FormEvent, useCallback } from 'react';
+import NumberFormat from 'react-number-format';
 
 import { Button } from 'lib/components/common/Button';
 import toast from 'lib/components/common/Toast';
@@ -18,7 +19,7 @@ const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
       email: { value: string };
       phone: { value: string };
       howFind: { value: string };
-      dreamerLevel: { value: number };
+      dreamValue: { value: number };
       motivations: { value: string };
     };
 
@@ -26,7 +27,7 @@ const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
     const email = target.email.value;
     const phone = target.phone.value;
     const howFind = target.howFind.value;
-    const dreamerLevel = target.dreamerLevel.value;
+    const dreamValue = target.dreamValue.value;
     const motivations = target.motivations.value;
 
     const values = {
@@ -34,7 +35,7 @@ const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
       email,
       phone,
       howFind,
-      dreamerLevel,
+      dreamValue,
       motivations,
     };
 
@@ -72,20 +73,23 @@ const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
               type="text"
               placeholder="Como nos conheceu?"
             />
-            <label htmlFor="dreamerLevel">Qual seu nível de sonhador?</label>
-            <input
-              name="dreamerLevel"
-              id="slider"
-              type="range"
-              min="1"
-              max="100"
+            <label htmlFor="dreamValue">
+              Qual o valor estimado do seu sonho?
+            </label>
+            <NumberFormat
+              name="dreamValue"
+              displayType={'input'}
+              thousandSeparator="."
+              decimalSeparator=","
+              prefix={'$'}
+              defaultValue={0}
             />
           </div>
           <div>
             <textarea
               name="motivations"
               rows={5}
-              placeholder="Suas motivacões"
+              placeholder="Quem é você, qual o seu sonho, para que servirá o seu sonho e por que as pessoas devem te ajudar"
             />
             {/* <FileUploader /> */}
             <Button>Sonhar</Button>

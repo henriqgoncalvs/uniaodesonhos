@@ -2,7 +2,7 @@ type MessageBuilderProps = {
   email: string;
   phone: string;
   howFind: string;
-  dreamerLevel: number;
+  dreamValue: number;
   motivations: string;
 };
 
@@ -10,7 +10,7 @@ const messageBuilder = ({
   email,
   phone,
   howFind,
-  dreamerLevel,
+  dreamValue,
   motivations,
 }: MessageBuilderProps) =>
   `Email: ${email}
@@ -19,7 +19,7 @@ const messageBuilder = ({
   =========
   Como nos conheceu: ${howFind}
   =========
-  Nível de sonhador: ${dreamerLevel}
+  Valor estimado do sonho: ${dreamValue}
   =========
   Motivações: ${motivations}
   `;

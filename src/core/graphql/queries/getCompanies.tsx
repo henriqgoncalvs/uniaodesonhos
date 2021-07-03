@@ -6,6 +6,7 @@ export const GET_COMPANIES = gql`
       id
       title
       description
+      url
       image {
         url
       }

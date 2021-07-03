@@ -108,6 +108,11 @@ export const SonhoCardContent = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
 
   padding: 2rem 3rem;
+
+  & > p:first-of-type {
+    font-weight: ${({ theme }) => theme.font.bold};
+    font-size: ${({ theme }) => theme.font.sizes.medium};
+  }
 `;
 
 export const SonhoCardDescription = styled.p`
@@ -133,6 +138,10 @@ export const Tag = styled.div`
 
   font-size: ${({ theme }) => theme.font.sizes.xxxsmall};
 
+  text-align: center;
+
   padding: 1rem 1.5rem;
   border-radius: 1.6rem;
+
+  width: 100%;
 `;

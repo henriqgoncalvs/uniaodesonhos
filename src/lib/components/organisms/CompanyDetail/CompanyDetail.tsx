@@ -21,7 +21,12 @@ function CompanyDetail({ company }: Props) {
         </div>
       </S.Header>
 
-      <S.Description>{company.description}</S.Description>
+      <S.Description>
+        {company.description}
+        <AnchorButton colorStyle="blueFilled" href={company?.url}>
+          Acessar o site
+        </AnchorButton>
+      </S.Description>
 
       <S.DreamsWrapper>
         {company.dreams.map((dream) => (

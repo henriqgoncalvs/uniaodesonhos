@@ -116,13 +116,14 @@ export const LinksWrapper = styled.div`
     flex-direction: column;
 
     align-items: flex-start;
+    margin-top: -10rem;
 
     ${media.lessThan('small')`
       align-items: center;
     `}
   `}
 
-  height: 60%;
+  height: 50%;
 `;
 
 export const Link = styled.button`
@@ -166,27 +167,34 @@ export const NavFooter = styled.div`
 
   transform: translateX(-50%);
 
-  ${({ theme }) => css`
-    ${theme.utils.display.flex.spaceBetween};
-    flex-direction: column;
-  `}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 export const FooterCity = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.small};
   font-style: italic;
+
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 `;
 
 export const IconsWrapper = styled.div`
   ${({ theme }) => css`
-    ${theme.utils.display.flex.spaceBetween};
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 
     a {
-      color: ${theme.colors.black};
+      margin-top: 2rem;
+      color: ${theme.colors.black} !important;
+      font-size: ${theme.font.sizes.small};
 
       ${theme.utils.display.flex.center};
 
-      &:first-child {
+      svg {
         margin-right: 2rem;
       }
     }

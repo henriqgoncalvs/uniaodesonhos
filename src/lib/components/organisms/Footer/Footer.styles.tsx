@@ -56,14 +56,28 @@ export const FooterText = styled.p`
     font-size: ${theme.font.sizes.medium};
     font-family: ${theme.font.family.lato};
     font-weight: 400;
-    color: ${theme.colors.black};
+    color: ${theme.colors.black} !important;
 
-    margin-bottom: 0.2rem;
+    padding-bottom: 2rem;
+
+    a {
+      margin-top: 2rem;
+      color: ${theme.colors.black} !important;
+      font-size: ${theme.font.sizes.small};
+
+      ${theme.utils.display.flex.center};
+
+      svg {
+        margin-right: 2rem;
+      }
+    }
   `}
 
-  text-align: right;
+  text-align: left;
+`;
 
-  ${media.lessThan('small')`
-    text-align: center;
-  `}
+export const IconsWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 `;

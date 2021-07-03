@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'lib/styles/global.style';
@@ -11,6 +12,25 @@ import 'react-toastify/dist/ReactToastify.css';
 const GlobalProvider: FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
+      <NextSeo
+        title="União de Sonhos."
+        description="Transformando sonhos em realidade."
+        canonical="https://uniaodesonhos.com.br"
+        openGraph={{
+          url: 'https://uniaodesonhos.com.br',
+          title: 'União de Sonhos',
+          description: 'Transformando sonhos em realidade.',
+          images: [
+            {
+              url: '/img/uniaodesonhos-logo-footer.svg',
+              width: 800,
+              height: 600,
+              alt: 'União de Sonhos',
+            },
+          ],
+          site_name: 'União de Sonhos',
+        }}
+      />
       <Head>
         <link
           rel="apple-touch-icon"

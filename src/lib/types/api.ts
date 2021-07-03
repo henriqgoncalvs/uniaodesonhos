@@ -140,5 +140,6 @@ export type CompaniesProps = {
   image: {
     url: string;
   };
+  url: string;
   dreams: Pick<DreamProps, 'id' | 'title' | 'thumbnail'>[];
 };

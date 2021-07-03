@@ -1,5 +1,5 @@
 import { RefObject, useState } from 'react';
-import { GrInstagram, GrLinkedinOption } from 'react-icons/gr';
+import { GrInstagram, GrMail } from 'react-icons/gr';
 
 import * as S from './Navbar.styles';
 
@@ -67,11 +67,13 @@ const Navbar = ({
         <S.NavFooter>
           <S.FooterCity>Recife, Brasil</S.FooterCity>
           <S.IconsWrapper>
-            <a href="/">
-              <GrLinkedinOption />
+            <a href="mailto:contato@uniaodesonhos.com">
+              <GrMail />
+              Fale com a gente: contato@uniaodesonhos.com
             </a>
-            <a href="/">
+            <a href="https://instagram.com/uniaodesonhosorg">
               <GrInstagram />
+              @uniaodesonhosorg
             </a>
           </S.IconsWrapper>
         </S.NavFooter>
