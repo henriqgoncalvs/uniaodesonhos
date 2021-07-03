@@ -11,8 +11,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     to: 'marcella.uniaodesonhos@gmail.com',
     from: 'marcella.uniaodesonhos@gmail.com',
     subject: `Quero sonhar`,
-    name: nome,
-    text: messageBuilder({ email, phone, howFind, dreamValue, motivations }),
+    text: messageBuilder({
+      nome,
+      email,
+      phone,
+      howFind,
+      dreamValue,
+      motivations,
+    }),
   };
 
   try {

@@ -1,4 +1,5 @@
 type MessageBuilderProps = {
+  nome: string;
   email: string;
   phone: string;
   howFind: string;
@@ -7,13 +8,16 @@ type MessageBuilderProps = {
 };
 
 const messageBuilder = ({
+  nome,
   email,
   phone,
   howFind,
   dreamValue,
   motivations,
 }: MessageBuilderProps) =>
-  `Email: ${email}
+  `Nome: ${nome}
+  =========
+  Email: ${email}
   =========
   Telefone: ${phone}
   =========
