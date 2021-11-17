@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<{ dream: DreamProps }> = async (
     props: {
       dream: formatedDream,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 };
 

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 
+import FormDream from 'lib/components/common/Modal/FormDream';
 import Footer from 'lib/components/organisms/Footer';
 import HomeAbout from 'lib/components/organisms/HomeAbout';
 import HomeBanner from 'lib/components/organisms/HomeBanner';
@@ -8,6 +9,8 @@ import HomeMap from 'lib/components/organisms/HomeMap';
 import HomeSonhosSendoSonhados from 'lib/components/organisms/HomeSonhosSendoSonhados';
 import Navbar from 'lib/components/organisms/Navbar';
 import { LandingPageProps } from 'lib/types/api';
+
+import * as S from './Home.styles';
 
 type HomeProps = {
   landingPage: LandingPageProps;
@@ -44,6 +47,16 @@ const Home = ({ landingPage }: HomeProps) => {
         refProp={companiesRef}
         data={landingPage.companiesDreamingTogether}
       />
+
+      <S.FormDreamContainer>
+        <S.FormDreamBody>
+          <FormDream />
+        </S.FormDreamBody>
+
+        <S.TopLeftDetail src="/img/modal-corner-left-top.svg" />
+        <S.BottomRightDetail src="/img/modal-corner-right-bottom.svg" />
+      </S.FormDreamContainer>
+
       <Footer />
     </>
   );

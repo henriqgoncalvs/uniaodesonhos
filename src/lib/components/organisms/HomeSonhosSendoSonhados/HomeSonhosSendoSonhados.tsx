@@ -38,55 +38,95 @@ const HomeSonhosSendoSonhados = ({ refProp, data }: Props) => {
   return (
     <S.Container ref={refProp}>
       <S.Title>{data.title}</S.Title>
-      <Carousel
-        deviceType={deviceType}
-        partialVisible
-        arrows
-        draggable
-        ssr
-        responsive={responsive}
-        removeArrowOnDeviceType={['mobile']}
-        infinite
-        // autoPlay
-        autoPlaySpeed={3000}
-        swipeable
-        itemClass="carousel-item"
-      >
-        {data.dreams.map((dream) => (
-          <S.SonhoCard key={dream.id}>
-            <S.SonhoCardBanner bg={dream.thumbnail.url}></S.SonhoCardBanner>
+      {data.dreams.length > 3 || deviceType === 'mobile' ? (
+        <Carousel
+          deviceType={deviceType}
+          partialVisible
+          arrows
+          draggable
+          ssr
+          responsive={responsive}
+          removeArrowOnDeviceType={['mobile']}
+          infinite
+          // autoPlay
+          autoPlaySpeed={3000}
+          swipeable
+          itemClass="carousel-item"
+          sliderClass="carousel-slider"
+        >
+          {data.dreams.map((dream) => (
+            <S.SonhoCard key={dream.id}>
+              <S.SonhoCardBanner bg={dream.thumbnail.url}></S.SonhoCardBanner>
 
-            <S.SonhoCardContent>
-              <S.TagWrapper>
-                {dream.dream_categories.map((category) => (
-                  <S.Tag key={category.text} color="lighterSecondary">
-                    {category.text}
-                  </S.Tag>
-                ))}
-              </S.TagWrapper>
-              <p>{dream.title}</p>
-              <AnchorButton
-                colorStyle="blueFilled"
-                border="squared"
-                size="small"
-                href={`/sonho/${dream.id}`}
-              >
-                Apoiar
-              </AnchorButton>
-              <S.SonhoCardDescription>
-                {dream.shortDescription}
-              </S.SonhoCardDescription>
-              <S.TagWrapper>
-                {dream.companies.map((company) => (
-                  <S.Tag key={company.title} color="lighterPrimary">
-                    {company.title}
-                  </S.Tag>
-                ))}
-              </S.TagWrapper>
-            </S.SonhoCardContent>
-          </S.SonhoCard>
-        ))}
-      </Carousel>
+              <S.SonhoCardContent>
+                <S.TagWrapper>
+                  {dream.dream_categories.map((category) => (
+                    <S.Tag key={category.text} color="lighterSecondary">
+                      {category.text}
+                    </S.Tag>
+                  ))}
+                </S.TagWrapper>
+                <p>{dream.title}</p>
+                <AnchorButton
+                  colorStyle="blueFilled"
+                  border="squared"
+                  size="small"
+                  href={`/sonho/${dream.id}`}
+                >
+                  Apoiar
+                </AnchorButton>
+                <S.SonhoCardDescription>
+                  {dream.shortDescription}
+                </S.SonhoCardDescription>
+                <S.TagWrapper>
+                  {dream.companies.map((company) => (
+                    <S.Tag key={company.title} color="lighterPrimary">
+                      {company.title}
+                    </S.Tag>
+                  ))}
+                </S.TagWrapper>
+              </S.SonhoCardContent>
+            </S.SonhoCard>
+          ))}
+        </Carousel>
+      ) : (
+        <S.SonhoGrid quantity={data.dreams.length}>
+          {data.dreams.map((dream) => (
+            <S.SonhoCard key={dream.id}>
+              <S.SonhoCardBanner bg={dream.thumbnail.url}></S.SonhoCardBanner>
+
+              <S.SonhoCardContent>
+                <S.TagWrapper>
+                  {dream.dream_categories.map((category) => (
+                    <S.Tag key={category.text} color="lighterSecondary">
+                      {category.text}
+                    </S.Tag>
+                  ))}
+                </S.TagWrapper>
+                <p>{dream.title}</p>
+                <AnchorButton
+                  colorStyle="blueFilled"
+                  border="squared"
+                  size="small"
+                  href={`/sonho/${dream.id}`}
+                >
+                  Apoiar
+                </AnchorButton>
+                <S.SonhoCardDescription>
+                  {dream.shortDescription}
+                </S.SonhoCardDescription>
+                <S.TagWrapper>
+                  {dream.companies.map((company) => (
+                    <S.Tag key={company.title} color="lighterPrimary">
+                      {company.title}
+                    </S.Tag>
+                  ))}
+                </S.TagWrapper>
+              </S.SonhoCardContent>
+            </S.SonhoCard>
+          ))}
+        </S.SonhoGrid>
+      )}
     </S.Container>
   );
 };

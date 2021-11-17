@@ -22,6 +22,10 @@ export const Container = styled.div`
       `}
     }
   `}
+
+  .carousel-slider {
+    align-items: flex-start;
+  }
 `;
 
 export const Title = styled.h2`
@@ -44,11 +48,25 @@ export const Title = styled.h2`
   `}
 `;
 
+export const SonhoGrid = styled.div`
+  width: 90%;
+  padding-left: ${({ theme }) => theme.spacing.medium};
+  padding-right: ${({ theme }) => theme.spacing.medium};
+  margin: 0 auto;
+  display: grid;
+  justify-content: space-between;
+  grid-gap: 20px;
+  grid-template-columns: ${({ quantity }: { quantity: number }) =>
+    `repeat(${quantity}, 1fr)`};
+`;
+
 export const SonhoCard = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 95%;
+  width: fit-content;
+
+  max-width: 100%;
 `;
 
 export const SonhoCardBanner = styled.div`
@@ -64,7 +82,7 @@ export const SonhoCardBanner = styled.div`
 
   padding: 2rem 3rem;
 
-  min-height: 14rem;
+  min-height: 20rem;
 
   position: relative;
 
@@ -125,6 +143,7 @@ export const TagWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: ${({ theme }) => theme.spacing.xxsmall};
+  flex-wrap: wrap;
 `;
 
 export const Tag = styled.div`
@@ -143,5 +162,5 @@ export const Tag = styled.div`
   padding: 1rem 1.5rem;
   border-radius: 1.6rem;
 
-  width: 100%;
+  width: fit-content;
 `;

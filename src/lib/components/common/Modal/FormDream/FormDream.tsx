@@ -6,7 +6,7 @@ import toast from 'lib/components/common/Toast';
 
 import * as S from './FormDream.styles';
 
-const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
+const WannaDream = ({ toggleModal }: { toggleModal?: () => void }) => {
   const notify = useCallback((type, message) => {
     toast({ type, message });
   }, []);
@@ -57,7 +57,7 @@ const WannaDream = ({ toggleModal }: { toggleModal: () => void }) => {
       );
     }
 
-    toggleModal();
+    if (toggleModal) toggleModal();
   };
 
   return (
